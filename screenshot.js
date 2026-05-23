@@ -25,6 +25,13 @@ if (!launch) {
 const browser = await launch.launch();
 const context = await browser.newContext();
 
+const pages = [
+  { path: '/', name: 'home' },
+  { path: '/tentang.html', name: 'tentang' },
+  { path: '/program.html', name: 'program' },
+  { path: '/kontak.html', name: 'kontak' },
+];
+
 const viewports = [
   { name: 'desktop', width: 1440, height: 900 },
   { name: 'tablet',  width: 768,  height: 1024 },
@@ -32,13 +39,15 @@ const viewports = [
 ];
 
 for (const vp of viewports) {
-  const page = await context.newPage();
-  await page.setViewportSize({ width: vp.width, height: vp.height });
-  await page.goto(`http://localhost:${PORT}/index.html`, { waitUntil: 'networkidle' });
-  const file = `${OUT_DIR}/${BROWSER}-${vp.name}-${vp.width}x${vp.height}.png`;
-  await page.screenshot({ path: file, fullPage: true });
-  console.log(`Saved: ${file}`);
-  await page.close();
+  for (const pg of pages) {
+    const page = await context.newPage();
+    await page.setViewportSize({ width: vp.width, height: vp.height });
+    await page.goto(`http://localhost:${PORT}${pg.path}`, { waitUntil: 'networkidle' });
+    const file = `${OUT_DIR}/${BROWSER}-${pg.name}-${vp.name}-${vp.width}x${vp.height}.png`;
+    await page.screenshot({ path: file, fullPage: true });
+    console.log(`Saved: ${file}`);
+    await page.close();
+  }
 }
 
 await browser.close();

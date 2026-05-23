@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Yayasan Jejak Anoa Indonesia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="tokens.css"/>
+<link rel="stylesheet" href="main.css"/>
+</head>
+<body data-page="tentang">
+<nav id="navbar">
+  <div class="nav-inner">
+    <div class="nav-logo" href="index.html">
+      <div class="nav-logo-badge" style="background:transparent;width:44px;height:44px;padding:0;overflow:hidden">
+        <img src="assets/logo.png" alt="Jejak Anoa" style="width:100%;height:100%;object-fit:contain">
+      </div>
+      <div class="nav-logo-text"><span class="t1" style="font-family:'Montserrat',sans-serif;font-weight:700">Jejak Anoa</span><span class="t2" style="font-family:'Montserrat',sans-serif">Indonesia</span></div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html" id="nl-beranda" class="active">Home</a></li>
+      <li><a href="tentang.html" id="nl-tentang">Tentang Kami</a></li>
+      <li><a href="program.html" id="nl-program">Program</a></li>
+      <li><a href="publikasi.html" id="nl-publikasi">Publikasi &amp; Penelitian</a></li>
+      <li><a href="mitra.html" id="nl-berita">Mitra &amp; Donor</a></li>
+      <li><a href="kontak.html" id="nl-kontak">Kontak</a></li>
+      <li><a href="donasi.html" id="nl-donasi" class="nav-btn-donasi">Donasi</a></li>
+      <li><a onclick="goLogin()" class="nav-btn-admin"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2 2H6a4 4 0 0 0-4 4h12a4 4 0 0 0-4-4z"/></svg>Admin</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="view active" id="view-public">
+<div id="pp-tentang">
+  <div style="padding-top:var(--nav-h)">
+    <div class="sec sec-dark" style="padding-top:5rem;position:relative;overflow:hidden">
+      <div class="sec-glow"></div>
+      <div class="container" style="position:relative;z-index:1">
+        <div class="sec-lbl lbl-r"><span class="dot"></span>Profil Lembaga</div>
+        <h1 style="font-family:'Montserrat',sans-serif;font-size:clamp(2.2rem,6vw,5rem);font-weight:700;color:#fff;line-height:.95;text-transform:uppercase;margin-bottom:1.3rem">Yayasan <em style="color:var(--green-l);font-style:italic">Jejak Anoa</em> Indonesia</h1>
+        <p style="font-size:.98rem;color:rgba(255,255,255,.5);max-width:480px;line-height:1.75">Organisasi nirlaba berbadan hukum bergerak di bidang konservasi lingkungan, pemberdayaan masyarakat, penelitian, dan kegiatan kemanusiaan sejak 2023.</p>
+      </div>
+    </div>
+    <section class="sec sec-cream">
+      <div class="container">
+        <div class="sec-lbl lbl-r"><span class="dot"></span>01 · Deskripsi</div>
+        <h2 class="sec-h2">Deskripsi &amp; Dokumentasi</h2><span class="ubar ubar-r"></span>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;margin-top:2.5rem" class="abt-split">
+          <div>
+            <div class="info-table">
+              <div class="ir"><span class="k">Nama Lembaga</span><span class="v">Yayasan Jejak Anoa Indonesia</span></div>
+              <div class="ir"><span class="k">Bentuk Lembaga</span><span class="v">Organisasi Nirlaba Berbadan Hukum</span></div>
+              <div class="ir"><span class="k">Bidang Kerja</span><span class="v">Konservasi Lingkungan, Pemberdayaan Masyarakat, Penelitian, Kemanusiaan</span></div>
+              <div class="ir"><span class="k">Akta Pendirian</span><span class="v">Januari 2026</span></div>
+              <div class="ir"><span class="k">SK Menkumham</span><span class="v">AHU-0002237.AH.01.04.Tahun 2026</span></div>
+            </div>
+            <div class="desc-txt"><p id="about-long-display">Yayasan Jejak Anoa Indonesia merupakan organisasi nirlaba yang bergerak di bidang konservasi lingkungan, pemberdayaan masyarakat, penelitian, dan kegiatan kemanusiaan. Inisiatif dimulai sejak <strong>2023</strong> dan memperoleh <strong>Akta Pendirian pada Januari 2026</strong>.</p></div>
+          </div>
+          <div>
+            <div class="vm-card">
+              <div class="vm-head"><h3>Visi &amp; Misi Lembaga</h3></div>
+              <div class="vm-body">
+                <div class="vm-s"><h4>Visi</h4><p id="visi-display-2">Alam Lestari dan Kearifan Masyarakat Nusantara.</p></div>
+                <div class="vm-s"><h4>Misi</h4><ol id="misi-display-2"></ol></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="sec sec-dark">
+      <div class="sec-glow"></div>
+      <div class="container" style="position:relative;z-index:1">
+        <div class="sec-lbl lbl-g"><span class="dot"></span>04 · Legalitas</div>
+        <h2 class="sec-h2 sec-h2-w">Legalitas Kelembagaan</h2><span class="ubar ubar-g"></span>
+        <div class="legal-grid">
+          <div class="lc"><div class="lc-h r">SK Pengesahan Badan Hukum</div><div class="lc-b"><p>Keputusan Menteri Hukum RI<br><strong>Nomor: AHU-0002237.AH.01.04.Tahun 2026</strong><br>Tanggal: <strong>23 Januari 2026</strong></p></div></div>
+          <div class="lc"><div class="lc-h g">Akta Pendirian</div><div class="lc-b"><p><strong>Akta Notaris Nomor 41</strong><br>Tanggal <strong>19 Januari 2026</strong><br>Notaris: <strong>Nanan Cahya, S.H., M.Kn.</strong></p></div></div>
+        </div>
+      </div>
+    </section>
+    <section style="padding:4rem 1.5rem;background:#FAFAF5">
+<div style="max-width:860px;margin:0 auto;font-family:Montserrat,sans-serif">
+  <div style="text-align:center;margin-bottom:3rem">
+    <div style="font-size:.68rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#8B1A1A;margin-bottom:.5rem">&#9679; Struktur Organisasi</div>
+    <h2 style="font-family:Montserrat,sans-serif;font-weight:800;font-size:clamp(1.5rem,3vw,2.2rem);color:#1a1a1a;margin:0 0 .65rem">Bagan Pengurus Yayasan</h2>
+    <div style="width:44px;height:3px;background:#2D7A2D;margin:0 auto;border-radius:2px"></div>
+  </div>
+
+  <!-- ══════ BAGAN STRUKTUR ══════ -->
+  <div style="text-align:center">
+
+    <!-- L1: PEMBINA -->
+    <div style="display:inline-block"><div style="width:130px;background:#1a1a1a;border-radius:8px;overflow:hidden;box-shadow:0 4px 18px rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.08);display:inline-block;vertical-align:top">
+  <div style="width:100%;height:5px;background:#2D7A2D"></div>
+  <img src="assets/photo-1.jpg" style="width:100%;aspect-ratio:1/1;object-fit:cover;object-position:top center;display:block" loading="lazy">
+  <div style="padding:.6rem .65rem .7rem;text-align:center">
+    <div style="font-size:.52rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:#2D7A2D;padding:.15rem .45rem;border-radius:2px;display:inline-block;margin-bottom:.35rem;font-family:Montserrat,sans-serif">Pembina</div>
+    <div style="font-size:.63rem;font-weight:700;color:#fff;line-height:1.35;font-family:Montserrat,sans-serif">Muhamad Rizal, S.Hut., M.Si.</div>
+  </div>
+</div></div>
+
+    <!-- Garis turun L1→L2 -->
+    <div style="width:2px;height:30px;background:rgba(45,122,45,.55);margin:0 auto"></div>
+
+    <!-- Cabang horizontal L2 -->
+    <div style="display:flex;align-items:flex-end;justify-content:center">
+      <!-- sisi kiri -->
+      <div style="flex:1;height:2px;background:rgba(45,122,45,.55);max-width:200px"></div>
+      <!-- titik tengah -->
+      <div style="width:2px;height:2px;background:rgba(45,122,45,.55)"></div>
+      <!-- sisi kanan -->
+      <div style="flex:1;height:2px;background:rgba(45,122,45,.55);max-width:200px"></div>
+    </div>
+
+    <!-- Garis turun ke Pengawas & Ketua -->
+    <div style="display:flex;justify-content:center;gap:0">
+      <!-- kiri: turun ke Pengawas -->
+      <div style="width:200px;display:flex;flex-direction:column;align-items:center">
+        <div style="width:2px;height:28px;background:rgba(45,122,45,.55)"></div>
+        <div style="width:130px;background:#1a1a1a;border-radius:8px;overflow:hidden;box-shadow:0 4px 18px rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.08);display:inline-block;vertical-align:top">
+  <div style="width:100%;height:5px;background:#2D7A2D"></div>
+  <img src="assets/photo-2.jpg" style="width:100%;aspect-ratio:1/1;object-fit:cover;object-position:top center;display:block" loading="lazy">
+  <div style="padding:.6rem .65rem .7rem;text-align:center">
+    <div style="font-size:.52rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:#2D7A2D;padding:.15rem .45rem;border-radius:2px;display:inline-block;margin-bottom:.35rem;font-family:Montserrat,sans-serif">Pengawas</div>
+    <div style="font-size:.63rem;font-weight:700;color:#fff;line-height:1.35;font-family:Montserrat,sans-serif">Tawakal, S.Ling., M.Si.</div>
+  </div>
+</div>
+      </div>
+      <!-- kanan: turun ke Ketua, lalu cabang lagi -->
+      <div style="width:200px;display:flex;flex-direction:column;align-items:center">
+        <div style="width:2px;height:28px;background:rgba(45,122,45,.55)"></div>
+        <div style="width:130px;background:#1a1a1a;border-radius:8px;overflow:hidden;box-shadow:0 4px 18px rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.08);display:inline-block;vertical-align:top">
+  <div style="width:100%;height:5px;background:#8B1A1A"></div>
+  <img src="assets/photo-3.jpg" style="width:100%;aspect-ratio:1/1;object-fit:cover;object-position:top center;display:block" loading="lazy">
+  <div style="padding:.6rem .65rem .7rem;text-align:center">
+    <div style="font-size:.52rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:#8B1A1A;padding:.15rem .45rem;border-radius:2px;display:inline-block;margin-bottom:.35rem;font-family:Montserrat,sans-serif">Ketua</div>
+    <div style="font-size:.63rem;font-weight:700;color:#fff;line-height:1.35;font-family:Montserrat,sans-serif">Kemal Muhsandi, S.Hut., M.Si.</div>
+  </div>
+</div>
+        <!-- garis turun dari Ketua -->
+        <div style="width:2px;height:28px;background:rgba(45,122,45,.55)"></div>
+        <!-- cabang horizontal L3 -->
+        <div style="display:flex;align-items:flex-end;width:100%">
+          <div style="flex:1;height:2px;background:rgba(45,122,45,.55)"></div>
+          <div style="width:2px;height:2px;background:rgba(45,122,45,.55)"></div>
+          <div style="flex:1;height:2px;background:rgba(45,122,45,.55)"></div>
+        </div>
+        <!-- turun ke Sek & Bend -->
+        <div style="display:flex;justify-content:center;gap:0;width:100%">
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center">
+            <div style="width:2px;height:28px;background:rgba(45,122,45,.55)"></div>
+            <div style="width:130px;background:#1a1a1a;border-radius:8px;overflow:hidden;box-shadow:0 4px 18px rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.08);display:inline-block;vertical-align:top">
+  <div style="width:100%;height:5px;background:#8B6914"></div>
+  <img src="assets/photo-4.jpg" style="width:100%;aspect-ratio:1/1;object-fit:cover;object-position:top center;display:block" loading="lazy">
+  <div style="padding:.6rem .65rem .7rem;text-align:center">
+    <div style="font-size:.52rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:#8B6914;padding:.15rem .45rem;border-radius:2px;display:inline-block;margin-bottom:.35rem;font-family:Montserrat,sans-serif">Sekretaris</div>
+    <div style="font-size:.63rem;font-weight:700;color:#fff;line-height:1.35;font-family:Montserrat,sans-serif">Aji Mustaq Firoh, S.TP., M.Si.</div>
+  </div>
+</div>
+          </div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center">
+            <div style="width:2px;height:28px;background:rgba(45,122,45,.55)"></div>
+            <div style="width:130px;background:#1a1a1a;border-radius:8px;overflow:hidden;box-shadow:0 4px 18px rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.08);display:inline-block;vertical-align:top">
+  <div style="width:100%;height:5px;background:#8B6914"></div>
+  <img src="assets/photo-5.jpg" style="width:100%;aspect-ratio:1/1;object-fit:cover;object-position:top center;display:block" loading="lazy">
+  <div style="padding:.6rem .65rem .7rem;text-align:center">
+    <div style="font-size:.52rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:#8B6914;padding:.15rem .45rem;border-radius:2px;display:inline-block;margin-bottom:.35rem;font-family:Montserrat,sans-serif">Bendahara</div>
+    <div style="font-size:.63rem;font-weight:700;color:#fff;line-height:1.35;font-family:Montserrat,sans-serif">Imalpen, S.Pd., M.Si.</div>
+  </div>
+</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- ══ end bagan ══ -->
+
+  <!-- Associate -->
+  <div style="margin-top:3rem;border-top:2px dashed rgba(45,122,45,.25);padding-top:2rem">
+    <div style="font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(0,0,0,.4);text-align:center;margin-bottom:1.2rem">— Associate —</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem">
+      <div style="background:#1a1a1a;border-radius:5px;padding:.6rem .85rem;border-left:3px solid #2D7A2D"><div style="font-size:.72rem;font-weight:700;color:#fff;line-height:1.3;margin-bottom:.15rem;font-family:Montserrat,sans-serif">Muh Iksan, S.Hut., M.Si.</div><div style="font-size:.61rem;color:rgba(255,255,255,.38);font-family:Montserrat,sans-serif">Ilmu Pengelolaan Hutan, IPB</div></div><div style="background:#1a1a1a;border-radius:5px;padding:.6rem .85rem;border-left:3px solid #2D7A2D"><div style="font-size:.72rem;font-weight:700;color:#fff;line-height:1.3;margin-bottom:.15rem;font-family:Montserrat,sans-serif">Ola Prajab Aso, S.Hut., M.Si.</div><div style="font-size:.61rem;color:rgba(255,255,255,.38);font-family:Montserrat,sans-serif">Konservasi Kehutanan, IPB</div></div><div style="background:#1a1a1a;border-radius:5px;padding:.6rem .85rem;border-left:3px solid #2D7A2D"><div style="font-size:.72rem;font-weight:700;color:#fff;line-height:1.3;margin-bottom:.15rem;font-family:Montserrat,sans-serif">Davik, S.Hut., M.Si.</div><div style="font-size:.61rem;color:rgba(255,255,255,.38);font-family:Montserrat,sans-serif">Pengelolaan DAS, IPB</div></div><div style="background:#1a1a1a;border-radius:5px;padding:.6rem .85rem;border-left:3px solid #2D7A2D"><div style="font-size:.72rem;font-weight:700;color:#fff;line-height:1.3;margin-bottom:.15rem;font-family:Montserrat,sans-serif">Ricky Astawan, S.Hut., M.Si.</div><div style="font-size:.61rem;color:rgba(255,255,255,.38);font-family:Montserrat,sans-serif">Konservasi Biodiversitas, IPB</div></div><div style="background:#1a1a1a;border-radius:5px;padding:.6rem .85rem;border-left:3px solid #2D7A2D"><div style="font-size:.72rem;font-weight:700;color:#fff;line-height:1.3;margin-bottom:.15rem;font-family:Montserrat,sans-serif">La Ode Fajar Hasidu, M.Si.</div><div style="font-size:.61rem;color:rgba(255,255,255,.38);font-family:Montserrat,sans-serif">Ekologi Mangrove, IPB</div></div><div style="background:#1a1a1a;border-radius:5px;padding:.6rem .85rem;border-left:3px solid #2D7A2D"><div style="font-size:.72rem;font-weight:700;color:#fff;line-height:1.3;margin-bottom:.15rem;font-family:Montserrat,sans-serif">Sitti Nurjumrana Z., S.Hut.</div><div style="font-size:.61rem;color:rgba(255,255,255,.38);font-family:Montserrat,sans-serif">Kehutanan</div></div><div style="background:#1a1a1a;border-radius:5px;padding:.6rem .85rem;border-left:3px solid #2D7A2D"><div style="font-size:.72rem;font-weight:700;color:#fff;line-height:1.3;margin-bottom:.15rem;font-family:Montserrat,sans-serif">Nurfajar, S.Pi., M.Si.</div><div style="font-size:.61rem;color:rgba(255,255,255,.38);font-family:Montserrat,sans-serif">Pengelolaan Perairan, IPB</div></div><div style="background:#1a1a1a;border-radius:5px;padding:.6rem .85rem;border-left:3px solid #2D7A2D"><div style="font-size:.72rem;font-weight:700;color:#fff;line-height:1.3;margin-bottom:.15rem;font-family:Montserrat,sans-serif">Kurnia Yati, S.Si., M.Si.</div><div style="font-size:.61rem;color:rgba(255,255,255,.38);font-family:Montserrat,sans-serif">Bioteknologi, IPB</div></div><div style="background:#1a1a1a;border-radius:5px;padding:.6rem .85rem;border-left:3px solid #2D7A2D"><div style="font-size:.72rem;font-weight:700;color:#fff;line-height:1.3;margin-bottom:.15rem;font-family:Montserrat,sans-serif">Bakryono Dae, S.Hut., M.Si.</div><div style="font-size:.61rem;color:rgba(255,255,255,.38);font-family:Montserrat,sans-serif">Sosial Kehutanan, IPB</div></div><div style="background:#1a1a1a;border-radius:5px;padding:.6rem .85rem;border-left:3px solid #2D7A2D"><div style="font-size:.72rem;font-weight:700;color:#fff;line-height:1.3;margin-bottom:.15rem;font-family:Montserrat,sans-serif">Rohani Islami, S.TP., M.Si.</div><div style="font-size:.61rem;color:rgba(255,255,255,.38);font-family:Montserrat,sans-serif">Teknologi Pangan, IPB</div></div><div style="background:#1a1a1a;border-radius:5px;padding:.6rem .85rem;border-left:3px solid #2D7A2D"><div style="font-size:.72rem;font-weight:700;color:#fff;line-height:1.3;margin-bottom:.15rem;font-family:Montserrat,sans-serif">Musdalifa I. Pasha, S.Si., M.Si.</div><div style="font-size:.61rem;color:rgba(255,255,255,.38);font-family:Montserrat,sans-serif">Pengelolaan Lingkungan, IPB</div></div><div style="background:#1a1a1a;border-radius:5px;padding:.6rem .85rem;border-left:3px solid #2D7A2D"><div style="font-size:.72rem;font-weight:700;color:#fff;line-height:1.3;margin-bottom:.15rem;font-family:Montserrat,sans-serif">Andra Aulianto, S.Hut.</div><div style="font-size:.61rem;color:rgba(255,255,255,.38);font-family:Montserrat,sans-serif">Kehutanan</div></div>
+    </div>
+  </div>
+</div>
+</section>
+    <section class="sec sec-dark">
+      <div class="sec-glow"></div>
+      <div class="container" style="position:relative;z-index:1">
+        <div class="sec-lbl lbl-r"><span class="dot"></span>06 · Tim</div>
+        <h2 class="sec-h2 sec-h2-w">Kualifikasi Anggota Tim</h2><span class="ubar ubar-r"></span>
+        <div class="team-grid">
+          <div class="tc core"><span class="tc-bdg">Pembina</span><div class="tc-nm">Muhamad Rizal S.Hut., M.Si.</div><div class="tc-dg">Magister Ilmu Pengelolaan Hutan, IPB</div><div class="tc-xp">Perencanaan Hutan, Karbon, GIS, Remote Sensing</div></div>
+          <div class="tc core"><span class="tc-bdg">Ketua</span><div class="tc-nm">Kemal Muhsandi S.Hut., M.Si.</div><div class="tc-dg">Magister Konservasi Biodiversitas Tropika, IPB</div><div class="tc-xp">Konservasi Spesies, Restorasi Habitat, Etnobotani</div></div>
+          <div class="tc core"><span class="tc-bdg">Sekretaris</span><div class="tc-nm">Aji Mustaq Firoh S.TP., M.Si.</div><div class="tc-dg">Magister Ilmu Pengelolaan Pangan, IPB</div><div class="tc-xp">Pengolahan pangan berkelanjutan, Keamanan pangan</div></div>
+          <div class="tc core"><span class="tc-bdg">Bendahara</span><div class="tc-nm">Imalpen S.Pd., M.Si.</div><div class="tc-dg">Magister Ilmu Kelautan dan Perikanan, IPB</div><div class="tc-xp">Oceanografi, GIS, Pemodelan Kelautan</div></div>
+          <div class="tc core"><span class="tc-bdg">Pengawas</span><div class="tc-nm">Tawakal S.Ling., M.Si.</div><div class="tc-dg">Magister Pengelolaan Sumberdaya Lingkungan, IPB</div><div class="tc-xp">Hidrologi, Analisis Dampak Lingkungan</div></div>
+          <div class="tc assoc"><span class="tc-bdg">Associate</span><div class="tc-nm">Dr (Cand) La Ode Fajar Hasidu</div><div class="tc-dg">Magister Ilmu Kelautan dan Perikanan, IPB</div><div class="tc-xp">Ekologi Mangrove, Blue Carbon</div></div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+</div>
+<footer>
+  <div class="container">
+    <div class="ft-top">
+      <div>
+        <div class="ft-brand" href="index.html">
+          <div class="fb-bdg" style="background:transparent;width:38px;height:38px;overflow:hidden"><img src="assets/logo.png" alt="JAI" style="width:100%;height:100%;object-fit:contain"></div>
+          <div><span class="fb-t1">Jejak Anoa Indonesia</span><span class="fb-t2">jejakanoa.id</span></div>
+        </div>
+        <p class="ft-desc">Organisasi nirlaba bergerak di bidang konservasi lingkungan, pemberdayaan masyarakat, penelitian, dan kegiatan kemanusiaan sejak 2023.</p>
+        <div class="ft-soc"><div class="fs">IG</div><div class="fs">FB</div><div class="fs">TW</div><div class="fs">YT</div></div>
+      </div>
+      <div class="ft-col"><h5>Navigasi</h5><a href="index.html">Beranda</a><a href="tentang.html">Tentang Kami</a><a href="program.html">Program</a><a href="mitra.html">Berita</a><a href="publikasi.html">Publikasi</a><a href="kontak.html">Kontak</a></div>
+      <div class="ft-col"><h5>Program</h5><a>Pendidikan &amp; Penelitian</a><a>Pemberdayaan Sosial</a><a>Pelestarian Lingkungan</a><a>Kegiatan Kemanusiaan</a></div>
+      <div class="ft-col"><h5>Kontak</h5><a>Ciherang, Dramaga, Bogor</a><a>+62 812-3424-9652</a><a>yayasan@jejakanoa.id</a><a href="donasi.html">Donasi</a></div>
+    </div>
+    <div class="ft-bot">
+      <p class="ft-copy">© 2026 <strong>Yayasan Jejak Anoa Indonesia</strong> · AHU-0002237.AH.01.04</p>
+      <p class="ft-copy">Dibuat dengan semangat pelestarian alam Nusantara</p>
+    </div>
+  </div>
+</footer>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

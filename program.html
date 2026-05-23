@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Yayasan Jejak Anoa Indonesia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="tokens.css"/>
+<link rel="stylesheet" href="main.css"/>
+</head>
+<body data-page="program">
+<nav id="navbar">
+  <div class="nav-inner">
+    <div class="nav-logo" href="index.html">
+      <div class="nav-logo-badge" style="background:transparent;width:44px;height:44px;padding:0;overflow:hidden">
+        <img src="assets/logo.png" alt="Jejak Anoa" style="width:100%;height:100%;object-fit:contain">
+      </div>
+      <div class="nav-logo-text"><span class="t1" style="font-family:'Montserrat',sans-serif;font-weight:700">Jejak Anoa</span><span class="t2" style="font-family:'Montserrat',sans-serif">Indonesia</span></div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html" id="nl-beranda" class="active">Home</a></li>
+      <li><a href="tentang.html" id="nl-tentang">Tentang Kami</a></li>
+      <li><a href="program.html" id="nl-program">Program</a></li>
+      <li><a href="publikasi.html" id="nl-publikasi">Publikasi &amp; Penelitian</a></li>
+      <li><a href="mitra.html" id="nl-berita">Mitra &amp; Donor</a></li>
+      <li><a href="kontak.html" id="nl-kontak">Kontak</a></li>
+      <li><a href="donasi.html" id="nl-donasi" class="nav-btn-donasi">Donasi</a></li>
+      <li><a onclick="goLogin()" class="nav-btn-admin"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2 2H6a4 4 0 0 0-4 4h12a4 4 0 0 0-4-4z"/></svg>Admin</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="view active" id="view-public">
+<div id="pp-program">
+  <div style="padding-top:var(--nav-h)">
+    <section class="sec sec-dark" style="padding-top:5rem">
+      <div class="sec-glow"></div>
+      <div class="container" style="position:relative;z-index:1">
+        <div class="sec-lbl lbl-g"><span class="dot"></span>Program Utama</div>
+        <h2 class="sec-h2 sec-h2-w">Empat Pilar Program</h2>
+        <span class="ubar ubar-g"></span>
+        <p style="font-family:'Montserrat',sans-serif;font-size:1rem;color:rgba(255,255,255,.55);max-width:620px;line-height:1.75;margin-top:.9rem">Yayasan Jejak Anoa menjalankan empat program utama yang saling mendukung untuk mewujudkan konservasi alam dan pemberdayaan masyarakat yang berkelanjutan.</p>
+        <div class="prog-grid" id="prog-display-full" style="margin-top:2.5rem"></div>
+      </div>
+    </section>
+    <section style="padding:5rem 0;background:#111c11;position:relative;overflow:hidden">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(45,122,45,.28) 0%,transparent 55%),radial-gradient(ellipse at 20% 80%,rgba(139,26,26,.18) 0%,transparent 50%);pointer-events:none"></div>
+  <div style="max-width:1140px;margin:0 auto;padding:0 1.5rem;position:relative;z-index:1">
+    <div style="font-size:.68rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#8B1A1A;margin-bottom:.5rem">&#9679; 06 · Tim Pengurus</div>
+    <h2 style="font-family:Montserrat,sans-serif;font-weight:800;font-size:clamp(1.8rem,4vw,2.8rem);color:#fff;margin:.3rem 0 .5rem">Pengurus Yayasan</h2>
+    <div style="width:44px;height:3px;background:#8B1A1A;border-radius:2px;margin-bottom:.75rem"></div>
+    <p style="font-size:.92rem;color:rgba(255,255,255,.5);max-width:560px;line-height:1.75;margin-bottom:2.5rem">Didukung oleh tenaga ahli berpengalaman dari IPB University.</p>
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:1.4rem">
+      <div style="background:#1F1F1F;border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,.07)">
+  <div style="width:100%;aspect-ratio:4/6;overflow:hidden"><img src="assets/photo-1.jpg" alt="Muhamad Rizal, S.Hut., M.Si." loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block"></div>
+  <div style="padding:.8rem .9rem .85rem">
+    <span style="font-size:.55rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:#fff;background:#2D7A2D;padding:.18rem .5rem;border-radius:2px;display:inline-block;margin-bottom:.4rem;font-family:Montserrat,sans-serif">Pembina</span>
+    <div style="font-size:.78rem;font-weight:700;color:#fff;line-height:1.35;margin-bottom:.28rem;font-family:Montserrat,sans-serif">Muhamad Rizal, S.Hut., M.Si.</div>
+    <div style="font-size:.63rem;color:#3A9A3A;font-weight:600;margin-bottom:.22rem;font-family:Montserrat,sans-serif">Magister Ilmu Pengelolaan Hutan, IPB</div>
+    <div style="font-size:.62rem;color:rgba(255,255,255,.38);line-height:1.5;font-family:Montserrat,sans-serif">Perencanaan Hutan, Karbon, GIS & Remote Sensing</div>
+  </div>
+</div><div style="background:#1F1F1F;border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,.07)">
+  <div style="width:100%;aspect-ratio:4/6;overflow:hidden"><img src="assets/photo-7.jpg" alt="Kemal Muhsandi, S.Hut., M.Si." loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block"></div>
+  <div style="padding:.8rem .9rem .85rem">
+    <span style="font-size:.55rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:#fff;background:#8B1A1A;padding:.18rem .5rem;border-radius:2px;display:inline-block;margin-bottom:.4rem;font-family:Montserrat,sans-serif">Ketua</span>
+    <div style="font-size:.78rem;font-weight:700;color:#fff;line-height:1.35;margin-bottom:.28rem;font-family:Montserrat,sans-serif">Kemal Muhsandi, S.Hut., M.Si.</div>
+    <div style="font-size:.63rem;color:#3A9A3A;font-weight:600;margin-bottom:.22rem;font-family:Montserrat,sans-serif">Magister Konservasi Biodiversitas Tropika, IPB</div>
+    <div style="font-size:.62rem;color:rgba(255,255,255,.38);line-height:1.5;font-family:Montserrat,sans-serif">Konservasi Spesies, Restorasi Habitat, Etnobotani</div>
+  </div>
+</div><div style="background:#1F1F1F;border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,.07)">
+  <div style="width:100%;aspect-ratio:4/6;overflow:hidden"><img src="assets/photo-8.jpg" alt="Tawakal, S.Ling., M.Si." loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block"></div>
+  <div style="padding:.8rem .9rem .85rem">
+    <span style="font-size:.55rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:#fff;background:#2D7A2D;padding:.18rem .5rem;border-radius:2px;display:inline-block;margin-bottom:.4rem;font-family:Montserrat,sans-serif">Pengawas</span>
+    <div style="font-size:.78rem;font-weight:700;color:#fff;line-height:1.35;margin-bottom:.28rem;font-family:Montserrat,sans-serif">Tawakal, S.Ling., M.Si.</div>
+    <div style="font-size:.63rem;color:#3A9A3A;font-weight:600;margin-bottom:.22rem;font-family:Montserrat,sans-serif">Magister Pengelolaan Sumberdaya Lingkungan, IPB</div>
+    <div style="font-size:.62rem;color:rgba(255,255,255,.38);line-height:1.5;font-family:Montserrat,sans-serif">Hidrologi, Analisis Dampak Lingkungan</div>
+  </div>
+</div><div style="background:#1F1F1F;border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,.07)">
+  <div style="width:100%;aspect-ratio:4/6;overflow:hidden"><img src="assets/photo-4.jpg" alt="Aji Mustaq Firoh, S.TP., M.Si." loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block"></div>
+  <div style="padding:.8rem .9rem .85rem">
+    <span style="font-size:.55rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:#fff;background:#8B6914;padding:.18rem .5rem;border-radius:2px;display:inline-block;margin-bottom:.4rem;font-family:Montserrat,sans-serif">Sekretaris</span>
+    <div style="font-size:.78rem;font-weight:700;color:#fff;line-height:1.35;margin-bottom:.28rem;font-family:Montserrat,sans-serif">Aji Mustaq Firoh, S.TP., M.Si.</div>
+    <div style="font-size:.63rem;color:#3A9A3A;font-weight:600;margin-bottom:.22rem;font-family:Montserrat,sans-serif">Magister Ilmu Pengelolaan Pangan, IPB</div>
+    <div style="font-size:.62rem;color:rgba(255,255,255,.38);line-height:1.5;font-family:Montserrat,sans-serif">Pengolahan Pangan Berkelanjutan, Keamanan Pangan</div>
+  </div>
+</div><div style="background:#1F1F1F;border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,.07)">
+  <div style="width:100%;aspect-ratio:4/6;overflow:hidden"><img src="assets/photo-5.jpg" alt="Imalpen, S.Pd., M.Si." loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block"></div>
+  <div style="padding:.8rem .9rem .85rem">
+    <span style="font-size:.55rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:#fff;background:#8B6914;padding:.18rem .5rem;border-radius:2px;display:inline-block;margin-bottom:.4rem;font-family:Montserrat,sans-serif">Bendahara</span>
+    <div style="font-size:.78rem;font-weight:700;color:#fff;line-height:1.35;margin-bottom:.28rem;font-family:Montserrat,sans-serif">Imalpen, S.Pd., M.Si.</div>
+    <div style="font-size:.63rem;color:#3A9A3A;font-weight:600;margin-bottom:.22rem;font-family:Montserrat,sans-serif">Magister Ilmu Kelautan dan Perikanan, IPB</div>
+    <div style="font-size:.62rem;color:rgba(255,255,255,.38);line-height:1.5;font-family:Montserrat,sans-serif">Oceanografi, GIS, Pemodelan Kelautan</div>
+  </div>
+</div>
+    </div>
+  </div>
+</section>
+    <section class="sec sec-cream">
+      <div class="container">
+        <div class="sec-lbl lbl-r"><span class="dot"></span>Pengalaman Kegiatan</div>
+        <h2 class="sec-h2">Pengalaman &amp; Dokumentasi</h2><span class="ubar ubar-r"></span>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:2.5rem" class="abt-split">
+          <ul class="exp-list">
+            <li><p>Pelaksanaan penelitian keanekaragaman hayati dan pemodelan distribusi spesies.</p></li>
+            <li><p>Penanaman <strong>548 pohon produktif</strong> (durian dan alpukat) di hulu Sub DAS Ciampea dengan sistem geotagging.</p></li>
+            <li><p>Kolaborasi pembersihan sungai dan edukasi pengurangan pencemaran.</p></li>
+            <li><p>Pengembangan pendekatan agroforestri berbasis kemitraan masyarakat.</p></li>
+          </ul>
+          <div class="act-cards">
+            <div class="act-card"><div class="act-th at1"></div><div class="act-bd"><h4>Penelitian &amp; Pengamatan Satwa Liar</h4><p>Survei lapangan dan pemodelan distribusi spesies di kawasan konservasi.</p></div></div>
+            <div class="act-card"><div class="act-th at2"></div><div class="act-bd"><h4>Aksi Peduli Sungai</h4><p>Pembersihan sungai dan edukasi masyarakat pengurangan pencemaran.</p></div></div>
+            <div class="act-card"><div class="act-th at3"></div><div class="act-bd"><h4>Penanaman Pohon MPTS</h4><p>Penanaman dan diskusi rencana bersama masyarakat Desa Benteng.</p></div></div>
+          </div>
+        </div>
+        <div style="margin-top:3rem">
+          <div class="kp-title" style="font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(0,0,0,.5);text-align:center;margin-bottom:1.3rem">Dokumentasi Visual Kegiatan</div>
+          <div class="kpanel-row">
+            <div class="kpi-panel"><div class="kpi-bg bg-w"></div><div class="kpi-lbl">Penelitian &amp; Satwa Liar</div></div>
+            <div class="kpi-panel"><div class="kpi-bg bg-r"></div><div class="kpi-lbl">Aksi Peduli Sungai</div></div>
+            <div class="kpi-panel"><div class="kpi-bg bg-d"></div><div class="kpi-lbl">Diskusi Masyarakat</div></div>
+            <div class="kpi-panel"><div class="kpi-bg bg-p"></div><div class="kpi-lbl">Penanaman Pohon MPTS</div></div>
+            <div class="kpi-panel"><div class="kpi-bg bg-c"></div><div class="kpi-lbl">Pemberdayaan Masyarakat</div></div>
+            <div class="kpi-panel"><div class="kpi-bg bg-q"></div><div class="kpi-lbl">Penelitian Keanekaragaman Hayati</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+</div>
+<footer>
+  <div class="container">
+    <div class="ft-top">
+      <div>
+        <div class="ft-brand" href="index.html">
+          <div class="fb-bdg" style="background:transparent;width:38px;height:38px;overflow:hidden"><img src="assets/logo.png" alt="JAI" style="width:100%;height:100%;object-fit:contain"></div>
+          <div><span class="fb-t1">Jejak Anoa Indonesia</span><span class="fb-t2">jejakanoa.id</span></div>
+        </div>
+        <p class="ft-desc">Organisasi nirlaba bergerak di bidang konservasi lingkungan, pemberdayaan masyarakat, penelitian, dan kegiatan kemanusiaan sejak 2023.</p>
+        <div class="ft-soc"><div class="fs">IG</div><div class="fs">FB</div><div class="fs">TW</div><div class="fs">YT</div></div>
+      </div>
+      <div class="ft-col"><h5>Navigasi</h5><a href="index.html">Beranda</a><a href="tentang.html">Tentang Kami</a><a href="program.html">Program</a><a href="mitra.html">Berita</a><a href="publikasi.html">Publikasi</a><a href="kontak.html">Kontak</a></div>
+      <div class="ft-col"><h5>Program</h5><a>Pendidikan &amp; Penelitian</a><a>Pemberdayaan Sosial</a><a>Pelestarian Lingkungan</a><a>Kegiatan Kemanusiaan</a></div>
+      <div class="ft-col"><h5>Kontak</h5><a>Ciherang, Dramaga, Bogor</a><a>+62 812-3424-9652</a><a>yayasan@jejakanoa.id</a><a href="donasi.html">Donasi</a></div>
+    </div>
+    <div class="ft-bot">
+      <p class="ft-copy">© 2026 <strong>Yayasan Jejak Anoa Indonesia</strong> · AHU-0002237.AH.01.04</p>
+      <p class="ft-copy">Dibuat dengan semangat pelestarian alam Nusantara</p>
+    </div>
+  </div>
+</footer>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

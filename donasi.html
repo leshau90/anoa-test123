@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Yayasan Jejak Anoa Indonesia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="tokens.css"/>
+<link rel="stylesheet" href="main.css"/>
+</head>
+<body data-page="donasi">
+<nav id="navbar">
+  <div class="nav-inner">
+    <div class="nav-logo" href="index.html">
+      <div class="nav-logo-badge" style="background:transparent;width:44px;height:44px;padding:0;overflow:hidden">
+        <img src="assets/logo.png" alt="Jejak Anoa" style="width:100%;height:100%;object-fit:contain">
+      </div>
+      <div class="nav-logo-text"><span class="t1" style="font-family:'Montserrat',sans-serif;font-weight:700">Jejak Anoa</span><span class="t2" style="font-family:'Montserrat',sans-serif">Indonesia</span></div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html" id="nl-beranda" class="active">Home</a></li>
+      <li><a href="tentang.html" id="nl-tentang">Tentang Kami</a></li>
+      <li><a href="program.html" id="nl-program">Program</a></li>
+      <li><a href="publikasi.html" id="nl-publikasi">Publikasi &amp; Penelitian</a></li>
+      <li><a href="mitra.html" id="nl-berita">Mitra &amp; Donor</a></li>
+      <li><a href="kontak.html" id="nl-kontak">Kontak</a></li>
+      <li><a href="donasi.html" id="nl-donasi" class="nav-btn-donasi">Donasi</a></li>
+      <li><a onclick="goLogin()" class="nav-btn-admin"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2 2H6a4 4 0 0 0-4 4h12a4 4 0 0 0-4-4z"/></svg>Admin</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="view active" id="view-public">
+<div id="pp-donasi">
+  <div style="padding-top:var(--nav-h)">
+    <section class="sec sec-cream" style="padding-top:5rem">
+      <div class="container">
+        <div style="text-align:center;margin-bottom:2.5rem">
+          <div class="sec-lbl lbl-g" style="justify-content:center"><span class="dot"></span>Dukung Kami</div>
+          <h2 class="sec-h2">Donasi untuk Alam Nusantara</h2>
+          <span class="ubar ubar-g" style="margin:0 auto .65rem"></span>
+          <p class="sec-lead" style="margin:0 auto;text-align:center">Setiap donasi Anda membantu menjaga kelestarian alam dan satwa liar Sulawesi.</p>
+        </div>
+        <div class="don-wrap">
+          <div class="don-banner">
+            <span class="db-tag">Campaign Aktif</span>
+            <h2>Konservasi Anoa &amp; Mangrove</h2>
+            <p>Yayasan Jejak Anoa Indonesia · jejakanoa.id</p>
+          </div>
+          <div class="don-card">
+            <div class="dc-ttl">Masukan Nominal Donasi</div>
+            <div class="nom-wrap"><span>Rp</span><input type="number" id="don-amount" placeholder="0" min="10000" oninput="updateDonTotal()"></div>
+            <p class="nom-hint">Mohon isi Rp 10.000 atau lebih</p>
+            <p style="font-size:.78rem;font-weight:600;text-align:center;color:#444;margin-bottom:.6rem">Atau pilih nominal</p>
+            <div class="nom-grid">
+              <button class="nb" onclick="setDon(10000,this)">10.000</button>
+              <button class="nb" onclick="setDon(20000,this)">20.000</button>
+              <button class="nb" onclick="setDon(50000,this)">50.000</button>
+              <button class="nb" onclick="setDon(100000,this)">100.000</button>
+              <button class="nb" onclick="setDon(200000,this)">200.000</button>
+              <button class="nb" onclick="setDon(500000,this)">500.000</button>
+            </div>
+            <hr class="d-div">
+            <p class="dc-ttl">Metode Pembayaran</p>
+            <div class="pay-grp">
+              <div class="pay-grp-h">E-Wallet</div>
+              <label class="pay-opt"><input type="radio" name="pay" value="gopay"><span class="pb pbo">GoPay</span><span class="pay-nm">GoPay</span></label>
+              <label class="pay-opt"><input type="radio" name="pay" value="ovo"><span class="pb pbv">OVO</span><span class="pay-nm">OVO</span></label>
+              <label class="pay-opt"><input type="radio" name="pay" value="dana"><span class="pb pbd">DANA</span><span class="pay-nm">DANA</span></label>
+              <label class="pay-opt"><input type="radio" name="pay" value="linkaja"><span class="pb pbl">LinkAja</span><span class="pay-nm">LinkAja</span></label>
+            </div>
+            <div class="pay-grp">
+              <div class="pay-grp-h">Virtual Account</div>
+              <label class="pay-opt"><input type="radio" name="pay" value="bca-va"><span class="pay-nm">BCA VA</span></label>
+              <label class="pay-opt"><input type="radio" name="pay" value="bni-va"><span class="pay-nm">BNI VA</span></label>
+              <label class="pay-opt"><input type="radio" name="pay" value="bri-va"><span class="pay-nm">BRI VA</span></label>
+              <label class="pay-opt"><input type="radio" name="pay" value="mandiri-va"><span class="pay-nm">Mandiri VA</span></label>
+              <label class="pay-opt"><input type="radio" name="pay" value="bsi-va"><span class="pay-nm">BSI VA</span></label>
+            </div>
+            <div class="pay-grp">
+              <div class="pay-grp-h">Bank Transfer (Verifikasi Manual)</div>
+              <label class="pay-opt"><input type="radio" name="pay" value="bni-tf"><span class="pay-nm">BNI</span></label>
+              <label class="pay-opt"><input type="radio" name="pay" value="bca-tf"><span class="pay-nm">BCA</span></label>
+              <label class="pay-opt"><input type="radio" name="pay" value="mandiri-tf"><span class="pay-nm">Mandiri</span></label>
+              <label class="pay-opt"><input type="radio" name="pay" value="bri-tf"><span class="pay-nm">BRI</span></label>
+              <label class="pay-opt"><input type="radio" name="pay" value="bsi-tf"><span class="pay-nm">BSI</span></label>
+            </div>
+            <hr class="d-div">
+            <p class="dc-ttl">Profil Donatur</p>
+            <div class="d-prof">
+              <input type="text" id="d-nm" placeholder="Nama Donatur">
+              <input type="email" id="d-em" placeholder="Email">
+              <input type="tel" id="d-ph" placeholder="No. Telepon">
+            </div>
+            <div class="d-anon"><input type="checkbox" id="d-anon"><label for="d-anon">Tampilkan sebagai anonim</label></div>
+            <div class="d-total"><span class="dt-lbl">Total Donasi</span><span class="dt-amt" id="don-total">Rp 0</span></div>
+            <button class="don-btn" onclick="submitDonasi()">Lanjutkan Pembayaran</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+</div>
+<footer>
+  <div class="container">
+    <div class="ft-top">
+      <div>
+        <div class="ft-brand" href="index.html">
+          <div class="fb-bdg" style="background:transparent;width:38px;height:38px;overflow:hidden"><img src="assets/logo.png" alt="JAI" style="width:100%;height:100%;object-fit:contain"></div>
+          <div><span class="fb-t1">Jejak Anoa Indonesia</span><span class="fb-t2">jejakanoa.id</span></div>
+        </div>
+        <p class="ft-desc">Organisasi nirlaba bergerak di bidang konservasi lingkungan, pemberdayaan masyarakat, penelitian, dan kegiatan kemanusiaan sejak 2023.</p>
+        <div class="ft-soc"><div class="fs">IG</div><div class="fs">FB</div><div class="fs">TW</div><div class="fs">YT</div></div>
+      </div>
+      <div class="ft-col"><h5>Navigasi</h5><a href="index.html">Beranda</a><a href="tentang.html">Tentang Kami</a><a href="program.html">Program</a><a href="mitra.html">Berita</a><a href="publikasi.html">Publikasi</a><a href="kontak.html">Kontak</a></div>
+      <div class="ft-col"><h5>Program</h5><a>Pendidikan &amp; Penelitian</a><a>Pemberdayaan Sosial</a><a>Pelestarian Lingkungan</a><a>Kegiatan Kemanusiaan</a></div>
+      <div class="ft-col"><h5>Kontak</h5><a>Ciherang, Dramaga, Bogor</a><a>+62 812-3424-9652</a><a>yayasan@jejakanoa.id</a><a href="donasi.html">Donasi</a></div>
+    </div>
+    <div class="ft-bot">
+      <p class="ft-copy">© 2026 <strong>Yayasan Jejak Anoa Indonesia</strong> · AHU-0002237.AH.01.04</p>
+      <p class="ft-copy">Dibuat dengan semangat pelestarian alam Nusantara</p>
+    </div>
+  </div>
+</footer>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

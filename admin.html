@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Yayasan Jejak Anoa Indonesia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="tokens.css"/>
+<link rel="stylesheet" href="main.css"/>
+</head>
+<body data-page="admin">
+<div class="view" id="view-login">
+  <div class="login-grain"></div>
+  <div class="login-al"></div><div class="login-ar"></div>
+  <div class="login-box">
+    <div class="login-logo">
+      <div class="login-logo-badge" style="background:transparent;width:52px;height:52px;overflow:hidden"><img src="assets/logo.png" alt="JAI" style="width:100%;height:100%;object-fit:contain"></div>
+      <div class="login-logo-text"><span class="t1">Jejak Anoa</span><span class="t2">Panel Admin</span></div>
+    </div>
+    <div class="login-card">
+      <h2>Masuk Admin</h2>
+      <p>Akses panel pengelola konten website</p>
+      <div class="lf-row"><label>Username</label><input type="text" id="l-user" placeholder="Masukkan username" onkeydown="if(event.key==='Enter')doLogin()"></div>
+      <div class="lf-row"><label>Password</label><input type="password" id="l-pass" placeholder="Masukkan password" onkeydown="if(event.key==='Enter')doLogin()"></div>
+      <button class="login-btn" onclick="doLogin()">Masuk ke Panel</button>
+      <div class="login-err" id="login-err">Username atau password salah.</div>
+      <div class="login-hint">Demo: <strong style="color:rgba(255,255,255,.7)">admin</strong> / <strong style="color:rgba(255,255,255,.7)">jejak2026</strong></div>
+    </div>
+    <span class="login-back" onclick="showView('public')">← Kembali ke Website</span>
+  </div>
+</div>
+<div class="view" id="view-admin">
+  <div class="admin-top">
+    <div class="admin-brand">
+      <div class="admin-brand-badge" style="background:transparent;width:32px;height:32px;overflow:hidden"><img src="assets/logo.png" alt="JAI" style="width:100%;height:100%;object-fit:contain"></div>
+      <div class="admin-brand-text"><span class="at1">Jejak Anoa</span><span class="at2">Panel Admin</span></div>
+    </div>
+    <div class="admin-top-right">
+      <span class="admin-user">Administrator</span>
+      <button class="btn-view-site" onclick="showView('public')">← Lihat Website</button>
+      <button class="btn-logout" onclick="doLogout()">Keluar</button>
+    </div>
+  </div>
+  <div class="admin-body">
+    <!-- SIDEBAR -->
+    <div class="admin-sidebar">
+      <div class="sidebar-section">
+        <div class="sidebar-sec-lbl">Utama</div>
+        <div class="sidebar-item active" onclick="showPanel('dashboard')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>Dashboard
+        </div>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-sec-lbl">Konten</div>
+        <div class="sidebar-item" onclick="showPanel('berita')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2z"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Berita
+          <span class="sidebar-badge" id="badge-berita">0</span>
+        </div>
+        <div class="sidebar-item" onclick="showPanel('program')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>Program
+        </div>
+        <div class="sidebar-item" onclick="showPanel('publikasi')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Publikasi
+          <span class="sidebar-badge" id="badge-pub">0</span>
+        </div>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-sec-lbl">Website</div>
+        <div class="sidebar-item" onclick="showPanel('homepage')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Beranda
+        </div>
+        <div class="sidebar-item" onclick="showPanel('tentang-admin')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>Tentang
+        </div>
+        <div class="sidebar-item" onclick="showPanel('kontak-admin')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-7-7 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.25h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.95-.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg>Kontak
+        </div>
+        <div class="sidebar-item" onclick="showPanel('mitra')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>Mitra
+        </div>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-sec-lbl">Akun</div>
+        <div class="sidebar-item" onclick="showPanel('pengaturan')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>Pengaturan
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN AREA -->
+    <div class="admin-main">
+
+      <!-- DASHBOARD -->
+      <div class="admin-panel active" id="panel-dashboard">
+        <div class="panel-title"><div><h2>Dashboard</h2><p>Selamat datang di panel admin Yayasan Jejak Anoa Indonesia</p></div></div>
+        <div class="dash-stats">
+          <div class="dash-stat ds-g"><span class="n" id="ds-berita">0</span><span class="l">Total Berita</span></div>
+          <div class="dash-stat ds-r"><span class="n" id="ds-pub">0</span><span class="l">Total Publikasi</span></div>
+          <div class="dash-stat ds-y"><span class="n" id="ds-prog">4</span><span class="l">Program Aktif</span></div>
+          <div class="dash-stat ds-b"><span class="n" id="ds-mitra">0</span><span class="l">Total Mitra</span></div>
+        </div>
+        <div class="dash-recent">
+          <div class="dash-box"><h3>Berita Terbaru <span onclick="showPanel('berita')">Kelola →</span></h3><div id="dash-recent-berita"></div></div>
+          <div class="dash-box"><h3>Publikasi Terbaru <span onclick="showPanel('publikasi')">Kelola →</span></h3><div id="dash-recent-pub"></div></div>
+        </div>
+      </div>
+
+      <!-- BERITA -->
+      <div class="admin-panel" id="panel-berita">
+        <div class="panel-title"><div><h2>Kelola Berita</h2><p>Tambah, edit, atau hapus artikel berita</p></div></div>
+        <div class="admin-table-wrap">
+          <div class="at-header"><h3>Daftar Berita</h3><button class="btn-add" onclick="openModal('berita',null)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Tambah Berita</button></div>
+          <table><thead><tr><th>Judul</th><th>Kategori</th><th>Tanggal</th><th>Status</th><th>Aksi</th></tr></thead><tbody id="table-berita"></tbody></table>
+        </div>
+      </div>
+
+      <!-- PROGRAM -->
+      <div class="admin-panel" id="panel-program">
+        <div class="panel-title"><div><h2>Kelola Program</h2><p>Edit konten program utama</p></div></div>
+        <div class="admin-table-wrap">
+          <div class="at-header"><h3>Program Utama</h3><button class="btn-add" onclick="openModal('program',null)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Tambah Program</button></div>
+          <table><thead><tr><th>Kode</th><th>Judul</th><th>Poin Program</th><th>Aksi</th></tr></thead><tbody id="table-program"></tbody></table>
+        </div>
+      </div>
+
+      <!-- PUBLIKASI -->
+      <div class="admin-panel" id="panel-publikasi">
+        <div class="panel-title"><div><h2>Kelola Publikasi</h2><p>Kelola dokumen dan laporan</p></div></div>
+        <div class="admin-table-wrap">
+          <div class="at-header"><h3>Daftar Publikasi</h3><button class="btn-add" onclick="openModal('publikasi',null)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Tambah Dokumen</button></div>
+          <table><thead><tr><th>Judul</th><th>Tipe</th><th>Tahun</th><th>Aksi</th></tr></thead><tbody id="table-pub"></tbody></table>
+        </div>
+      </div>
+
+      <!-- HOMEPAGE SETTINGS -->
+      <div class="admin-panel" id="panel-homepage">
+        <div class="panel-title"><div><h2>Pengaturan Beranda</h2><p>Edit konten hero section dan statistik</p></div></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.3rem" class="settings-grid">
+          <div class="settings-card">
+            <h3>Hero Section</h3>
+            <div class="mf-row"><label>Tagline Hero</label><textarea id="set-tagline" rows="2"></textarea></div>
+            <div class="mf-row"><label>Deskripsi Singkat</label><textarea id="set-about-short" rows="3"></textarea></div>
+          </div>
+          <div class="settings-card">
+            <h3>Statistik Hero</h3>
+            <div class="mf-row"><label>Pohon Ditanam</label><input type="text" id="set-stat-pohon"></div>
+            <div class="mf-row"><label>Dukungan Mitra</label><input type="text" id="set-stat-mitra"></div>
+            <div class="mf-row"><label>Anggota & Associate</label><input type="text" id="set-stat-angg"></div>
+          </div>
+        </div>
+        <div style="margin-top:1rem;text-align:right"><button class="btn-save" onclick="saveHomepage()">Simpan Perubahan</button></div>
+      </div>
+
+      <!-- TENTANG SETTINGS -->
+      <div class="admin-panel" id="panel-tentang-admin">
+        <div class="panel-title"><div><h2>Pengaturan Tentang Kami</h2><p>Edit visi, misi, dan deskripsi lembaga</p></div></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.3rem" class="settings-grid">
+          <div class="settings-card">
+            <h3>Visi</h3>
+            <div class="mf-row"><textarea id="set-visi" rows="3"></textarea></div>
+            <h3 style="margin-top:1.2rem">Deskripsi Lengkap</h3>
+            <div class="mf-row"><textarea id="set-about-long" rows="5"></textarea></div>
+          </div>
+          <div class="settings-card">
+            <h3>Misi (pisahkan dengan baris baru)</h3>
+            <div class="mf-row"><textarea id="set-misi" rows="10"></textarea></div>
+          </div>
+        </div>
+        <div style="margin-top:1rem;text-align:right"><button class="btn-save" onclick="saveTentang()">Simpan Perubahan</button></div>
+      </div>
+
+      <!-- KONTAK SETTINGS -->
+      <div class="admin-panel" id="panel-kontak-admin">
+        <div class="panel-title"><div><h2>Pengaturan Kontak</h2><p>Edit informasi kontak yang tampil di website</p></div></div>
+        <div class="settings-card" style="max-width:600px">
+          <h3>Informasi Kontak</h3>
+          <div class="mf-row"><label>Alamat Kantor</label><textarea id="set-alamat" rows="2"></textarea></div>
+          <div class="mf-row"><label>Nomor Telepon</label><input type="text" id="set-telp"></div>
+          <div class="mf-row"><label>Email</label><input type="email" id="set-email"></div>
+          <div class="mf-row"><label>Kutipan Halaman Kontak</label><textarea id="set-quote" rows="3"></textarea></div>
+        </div>
+        <div style="margin-top:1rem;text-align:right"><button class="btn-save" onclick="saveKontak()">Simpan Perubahan</button></div>
+      </div>
+
+      <!-- MITRA -->
+      <div class="admin-panel" id="panel-mitra">
+        <div class="panel-title"><div><h2>Kelola Mitra</h2><p>Tambah atau hapus mitra yang tampil di website</p></div></div>
+        <div class="admin-table-wrap">
+          <div class="at-header"><h3>Daftar Mitra</h3><button class="btn-add" onclick="openModal('mitra',null)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Tambah Mitra</button></div>
+          <table><thead><tr><th>Nama Mitra</th><th>Aksi</th></tr></thead><tbody id="table-mitra"></tbody></table>
+        </div>
+      </div>
+
+      <!-- PENGATURAN -->
+      <div class="admin-panel" id="panel-pengaturan">
+        <div class="panel-title"><div><h2>Pengaturan Akun</h2><p>Kelola akun dan keamanan admin</p></div></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.3rem" class="settings-grid">
+          <div class="settings-card">
+            <h3>Informasi Akun</h3>
+            <div class="info-row-s"><span class="irs-k">Username</span><span class="irs-v">admin</span></div>
+            <div class="info-row-s"><span class="irs-k">Level</span><span class="irs-v">Super Admin</span></div>
+            <div class="info-row-s"><span class="irs-k">Last Login</span><span class="irs-v" id="last-login-time">—</span></div>
+          </div>
+          <div class="settings-card">
+            <h3>Ganti Password</h3>
+            <div class="mf-row"><label>Password Lama</label><input type="password" id="pw-old"></div>
+            <div class="mf-row"><label>Password Baru</label><input type="password" id="pw-new"></div>
+            <div class="mf-row"><label>Konfirmasi Password</label><input type="password" id="pw-cfm"></div>
+            <button class="btn-save" onclick="changePassword()" style="margin-top:.5rem">Ganti Password</button>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /admin-main -->
+  </div><!-- /admin-body -->
+</div><!-- /view-admin -->
+
+<!-- ══════════════════════════════════════
+     MODAL: CRUD FORM
+══════════════════════════════════════ -->
+<div class="modal-overlay hidden" id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal" id="modal-box" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <h3 id="modal-title">Form</h3>
+      <button class="modal-close" onclick="closeModal()">×</button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+    <div class="modal-footer">
+      <button class="btn-cancel" onclick="closeModal()">Batal</button>
+      <button class="btn-save" onclick="saveModal()">Simpan</button>
+    </div>
+  </div>
+</div>
+
+<!-- CONFIRM MODAL -->
+<div class="modal-overlay hidden" id="confirm-overlay">
+  <div class="confirm-modal">
+    <div class="cm-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#9B1D20" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg></div>
+    <h3>Hapus Item?</h3>
+    <p id="confirm-text">Tindakan ini tidak dapat dibatalkan.</p>
+    <div class="cm-btns">
+      <button class="btn-cancel" onclick="document.getElementById('confirm-overlay').classList.add('hidden')">Batal</button>
+      <button class="btn-save" style="background:var(--red)" id="confirm-btn">Ya, Hapus</button>
+    </div>
+  </div>
+</div>
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('view-login').classList.add('active');
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Yayasan Jejak Anoa Indonesia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="tokens.css"/>
+<link rel="stylesheet" href="main.css"/>
+</head>
+<body data-page="publikasi">
+<nav id="navbar">
+  <div class="nav-inner">
+    <div class="nav-logo" href="index.html">
+      <div class="nav-logo-badge" style="background:transparent;width:44px;height:44px;padding:0;overflow:hidden">
+        <img src="assets/logo.png" alt="Jejak Anoa" style="width:100%;height:100%;object-fit:contain">
+      </div>
+      <div class="nav-logo-text"><span class="t1" style="font-family:'Montserrat',sans-serif;font-weight:700">Jejak Anoa</span><span class="t2" style="font-family:'Montserrat',sans-serif">Indonesia</span></div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html" id="nl-beranda" class="active">Home</a></li>
+      <li><a href="tentang.html" id="nl-tentang">Tentang Kami</a></li>
+      <li><a href="program.html" id="nl-program">Program</a></li>
+      <li><a href="publikasi.html" id="nl-publikasi">Publikasi &amp; Penelitian</a></li>
+      <li><a href="mitra.html" id="nl-berita">Mitra &amp; Donor</a></li>
+      <li><a href="kontak.html" id="nl-kontak">Kontak</a></li>
+      <li><a href="donasi.html" id="nl-donasi" class="nav-btn-donasi">Donasi</a></li>
+      <li><a onclick="goLogin()" class="nav-btn-admin"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2 2H6a4 4 0 0 0-4 4h12a4 4 0 0 0-4-4z"/></svg>Admin</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="view active" id="view-public">
+<div id="pp-publikasi">
+  <div style="padding-top:var(--nav-h)">
+    <section class="sec sec-dark" style="padding-top:5rem">
+      <div class="sec-glow"></div>
+      <div class="container" style="position:relative;z-index:1">
+        <div class="sec-lbl lbl-g"><span class="dot"></span>Pengetahuan & Data</div>
+        <h2 class="sec-h2 sec-h2-w">Publikasi &amp; Dokumen</h2><span class="ubar ubar-g"></span>
+        <p class="sec-lead sec-lead-w">Laporan riset, panduan teknis, dan dokumentasi pembelajaran untuk mendukung pengambilan keputusan berbasis bukti.</p>
+        <div class="pub-grid" id="pub-display"></div>
+      </div>
+    </section>
+  </div>
+</div>
+</div>
+<footer>
+  <div class="container">
+    <div class="ft-top">
+      <div>
+        <div class="ft-brand" href="index.html">
+          <div class="fb-bdg" style="background:transparent;width:38px;height:38px;overflow:hidden"><img src="assets/logo.png" alt="JAI" style="width:100%;height:100%;object-fit:contain"></div>
+          <div><span class="fb-t1">Jejak Anoa Indonesia</span><span class="fb-t2">jejakanoa.id</span></div>
+        </div>
+        <p class="ft-desc">Organisasi nirlaba bergerak di bidang konservasi lingkungan, pemberdayaan masyarakat, penelitian, dan kegiatan kemanusiaan sejak 2023.</p>
+        <div class="ft-soc"><div class="fs">IG</div><div class="fs">FB</div><div class="fs">TW</div><div class="fs">YT</div></div>
+      </div>
+      <div class="ft-col"><h5>Navigasi</h5><a href="index.html">Beranda</a><a href="tentang.html">Tentang Kami</a><a href="program.html">Program</a><a href="mitra.html">Berita</a><a href="publikasi.html">Publikasi</a><a href="kontak.html">Kontak</a></div>
+      <div class="ft-col"><h5>Program</h5><a>Pendidikan &amp; Penelitian</a><a>Pemberdayaan Sosial</a><a>Pelestarian Lingkungan</a><a>Kegiatan Kemanusiaan</a></div>
+      <div class="ft-col"><h5>Kontak</h5><a>Ciherang, Dramaga, Bogor</a><a>+62 812-3424-9652</a><a>yayasan@jejakanoa.id</a><a href="donasi.html">Donasi</a></div>
+    </div>
+    <div class="ft-bot">
+      <p class="ft-copy">© 2026 <strong>Yayasan Jejak Anoa Indonesia</strong> · AHU-0002237.AH.01.04</p>
+      <p class="ft-copy">Dibuat dengan semangat pelestarian alam Nusantara</p>
+    </div>
+  </div>
+</footer>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

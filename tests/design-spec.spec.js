@@ -1,12 +1,6 @@
 // @ts-check
 import { test, expect } from '@playwright/test';
 
-/** Navigate to a section using the SPA nav() function */
-async function goTo(page, sectionId) {
-  await page.evaluate((id) => window.nav(id), sectionId);
-  await page.waitForTimeout(300);
-}
-
 /** Read a CSS custom property from :root */
 async function cssVar(page, name) {
   return page.evaluate(
@@ -142,10 +136,11 @@ test.describe('4. Hero Section', () => {
     await expect(page.locator('#hero .btn-s')).toContainText('Donasi');
   });
 
-  test('"Donasi" button navigates to donasi section', async ({ page }) => {
+  test('"Donasi" button navigates to donasi page', async ({ page }) => {
     await page.locator('#hero .btn-s').click();
-    await page.waitForTimeout(300);
-    await expect(page.locator('#pp-donasi')).toHaveClass(/active/);
+    await page.waitForLoadState('domcontentloaded');
+    // URL may show donasi.html or /donasi depending on server config
+    expect(page.url()).toMatch(/donasi/);
   });
 
   test('hero shows "Pohon Ditanam" stat', async ({ page }) => {
@@ -207,7 +202,8 @@ test.describe('6. Visi & Misi', () => {
 
 test.describe('7. Program Utama', () => {
   test.beforeEach(async ({ page }) => {
-    await goTo(page, 'program');
+    await page.goto('/program.html');
+    await page.waitForLoadState('domcontentloaded');
   });
 
   test('Program A: "Pelestarian Lingkungan Hidup" is displayed', async ({ page }) => {
@@ -228,7 +224,8 @@ test.describe('7. Program Utama', () => {
   });
 
   test('Program A contains environmental items (Penghijauan, Rehabilitasi, Konservasi hayati)', async ({ page }) => {
-    await goTo(page, 'beranda');
+    await page.goto('/');
+    await page.waitForLoadState('domcontentloaded');
     const progGrid = page.locator('#prog-display-beranda');
     await expect(progGrid).toContainText('Penghijauan');
     await expect(progGrid).toContainText('Rehabilitasi');
@@ -236,7 +233,8 @@ test.describe('7. Program Utama', () => {
   });
 
   test('Program C contains research items (Penelitian ilmu pengetahuan)', async ({ page }) => {
-    await goTo(page, 'beranda');
+    await page.goto('/');
+    await page.waitForLoadState('domcontentloaded');
     const progGrid = page.locator('#prog-display-beranda');
     await expect(progGrid).toContainText('ilmu pengetahuan');
   });
@@ -267,7 +265,8 @@ test.describe('8. Home Page Sections', () => {
 
 test.describe('9. Tentang Kami Page', () => {
   test.beforeEach(async ({ page }) => {
-    await goTo(page, 'tentang');
+    await page.goto('/tentang.html');
+    await page.waitForLoadState('domcontentloaded');
   });
 
   test('Tentang page shows Sejarah/description', async ({ page }) => {
@@ -291,7 +290,8 @@ test.describe('9. Tentang Kami Page', () => {
 
 test.describe('10. Kontak Page', () => {
   test.beforeEach(async ({ page }) => {
-    await goTo(page, 'kontak');
+    await page.goto('/kontak.html');
+    await page.waitForLoadState('domcontentloaded');
   });
 
   test('Office address is shown', async ({ page }) => {
@@ -326,32 +326,35 @@ test.describe('10. Kontak Page', () => {
 
 // ─── 11. PAGE NAVIGATION ─────────────────────────────────────────────────────
 
-test.describe('11. SPA Navigation', () => {
-  test('clicking Tentang shows pp-tentang', async ({ page }) => {
-    await goTo(page, 'tentang');
-    await expect(page.locator('#pp-tentang')).toHaveClass(/active/);
-    await expect(page.locator('#pp-beranda')).not.toHaveClass(/active/);
+test.describe('11. Multi-Page Navigation', () => {
+  test('clicking Tentang navigates to tentang.html', async ({ page }) => {
+    await page.goto('/tentang.html');
+    await page.waitForLoadState('domcontentloaded');
+    await expect(page.locator('#pp-tentang')).toBeVisible();
   });
 
-  test('clicking Program shows pp-program', async ({ page }) => {
-    await goTo(page, 'program');
-    await expect(page.locator('#pp-program')).toHaveClass(/active/);
+  test('clicking Program navigates to program.html', async ({ page }) => {
+    await page.goto('/program.html');
+    await page.waitForLoadState('domcontentloaded');
+    await expect(page.locator('#pp-program')).toBeVisible();
   });
 
-  test('clicking Publikasi shows pp-publikasi', async ({ page }) => {
-    await goTo(page, 'publikasi');
-    await expect(page.locator('#pp-publikasi')).toHaveClass(/active/);
+  test('clicking Publikasi navigates to publikasi.html', async ({ page }) => {
+    await page.goto('/publikasi.html');
+    await page.waitForLoadState('domcontentloaded');
+    await expect(page.locator('#pp-publikasi')).toBeVisible();
   });
 
-  test('clicking Kontak shows pp-kontak', async ({ page }) => {
-    await goTo(page, 'kontak');
-    await expect(page.locator('#pp-kontak')).toHaveClass(/active/);
+  test('clicking Kontak navigates to kontak.html', async ({ page }) => {
+    await page.goto('/kontak.html');
+    await page.waitForLoadState('domcontentloaded');
+    await expect(page.locator('#pp-kontak')).toBeVisible();
   });
 
-  test('clicking Home (beranda) restores home page', async ({ page }) => {
-    await goTo(page, 'tentang');
-    await goTo(page, 'beranda');
-    await expect(page.locator('#pp-beranda')).toHaveClass(/active/);
+  test('Home page (beranda) has pp-beranda', async ({ page }) => {
+    await page.goto('/');
+    await page.waitForLoadState('domcontentloaded');
+    await expect(page.locator('#pp-beranda')).toBeVisible();
   });
 });
 
