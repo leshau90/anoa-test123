@@ -1,0 +1,433 @@
+/* ============================================================
+   JEJAK ANOA — Design Tokens
+   "Alam Lestari dan Kearifan Masyarakat Nusantara"
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+:root {
+
+  /* ----------------------------------------------------------
+     1. COLOR PALETTE
+  ---------------------------------------------------------- */
+
+  /* Primary Colors */
+  --color-red:        #A0272A;   /* Merah   — accent / CTA */
+  --color-brown:      #8B6331;   /* Coklat  — warm accent  */
+  --color-green:      #4A7C3F;   /* Hijau   — primary brand */
+  --color-green-dark: #1F4E2C;   /* Hijau Tua — deep brand */
+  --color-cream:      #F5F0E8;   /* Krem    — background   */
+  --color-black:      #1A1A1A;   /* Hitam   — text / dark  */
+
+  /* Semantic Aliases */
+  --color-primary:         var(--color-green);
+  --color-primary-dark:    var(--color-green-dark);
+  --color-secondary:       var(--color-brown);
+  --color-accent:          var(--color-red);
+  --color-bg:              var(--color-cream);
+  --color-bg-dark:         var(--color-green-dark);
+  --color-text:            var(--color-black);
+  --color-text-light:      #4A4A4A;
+  --color-text-on-dark:    #FFFFFF;
+  --color-text-muted:      #7A7A6A;
+
+  /* Surface Colors */
+  --color-surface:         #FFFFFF;
+  --color-surface-tinted:  #EFF5EC;   /* light green tint */
+  --color-border:          #D6CFC0;
+  --color-border-light:    #EDE8DF;
+
+  /* ----------------------------------------------------------
+     2. TYPOGRAPHY
+  ---------------------------------------------------------- */
+
+  --font-family:           'Montserrat', sans-serif;
+
+  /* Weights */
+  --font-weight-regular:   400;   /* Body Text / Isi Konten    */
+  --font-weight-semibold:  600;   /* Sub Heading / Sub Judul   */
+  --font-weight-bold:      700;   /* Heading / Judul Utama     */
+
+  /* Scale */
+  --font-size-xs:          0.75rem;    /* 12px */
+  --font-size-sm:          0.875rem;   /* 14px */
+  --font-size-base:        1rem;       /* 16px */
+  --font-size-md:          1.125rem;   /* 18px */
+  --font-size-lg:          1.25rem;    /* 20px */
+  --font-size-xl:          1.5rem;     /* 24px */
+  --font-size-2xl:         1.875rem;   /* 30px */
+  --font-size-3xl:         2.25rem;    /* 36px */
+  --font-size-4xl:         3rem;       /* 48px */
+  --font-size-hero:        3.75rem;    /* 60px */
+
+  /* Line Heights */
+  --line-height-tight:     1.2;
+  --line-height-snug:      1.4;
+  --line-height-normal:    1.6;
+  --line-height-relaxed:   1.8;
+
+  /* Letter Spacing */
+  --letter-spacing-tight:  -0.02em;
+  --letter-spacing-normal:  0em;
+  --letter-spacing-wide:    0.05em;
+  --letter-spacing-wider:   0.1em;
+
+  /* ----------------------------------------------------------
+     3. SPACING SCALE
+  ---------------------------------------------------------- */
+
+  --space-1:    0.25rem;   /*  4px */
+  --space-2:    0.5rem;    /*  8px */
+  --space-3:    0.75rem;   /* 12px */
+  --space-4:    1rem;      /* 16px */
+  --space-5:    1.25rem;   /* 20px */
+  --space-6:    1.5rem;    /* 24px */
+  --space-8:    2rem;      /* 32px */
+  --space-10:   2.5rem;    /* 40px */
+  --space-12:   3rem;      /* 48px */
+  --space-16:   4rem;      /* 64px */
+  --space-20:   5rem;      /* 80px */
+  --space-24:   6rem;      /* 96px */
+  --space-32:   8rem;      /* 128px */
+
+  /* ----------------------------------------------------------
+     4. BORDER RADIUS
+  ---------------------------------------------------------- */
+
+  --radius-sm:    4px;
+  --radius-md:    8px;
+  --radius-lg:    12px;
+  --radius-xl:    20px;
+  --radius-2xl:   32px;
+  --radius-full:  9999px;
+
+  /* ----------------------------------------------------------
+     5. SHADOWS
+  ---------------------------------------------------------- */
+
+  --shadow-sm:   0 1px 3px rgba(31, 78, 44, 0.08);
+  --shadow-md:   0 4px 12px rgba(31, 78, 44, 0.12);
+  --shadow-lg:   0 8px 24px rgba(31, 78, 44, 0.16);
+  --shadow-xl:   0 16px 48px rgba(31, 78, 44, 0.20);
+
+  /* ----------------------------------------------------------
+     6. LAYOUT
+  ---------------------------------------------------------- */
+
+  --container-max:    1200px;
+  --container-narrow: 800px;
+  --container-wide:   1400px;
+  --nav-height:       72px;
+
+  /* ----------------------------------------------------------
+     7. TRANSITIONS
+  ---------------------------------------------------------- */
+
+  --transition-fast:    150ms ease;
+  --transition-base:    250ms ease;
+  --transition-slow:    400ms ease;
+  --transition-spring:  350ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ----------------------------------------------------------
+     8. Z-INDEX SCALE
+  ---------------------------------------------------------- */
+
+  --z-base:     0;
+  --z-raised:   10;
+  --z-dropdown: 100;
+  --z-sticky:   200;
+  --z-overlay:  300;
+  --z-modal:    400;
+  --z-toast:    500;
+}
+
+
+/* ============================================================
+   TYPOGRAPHY UTILITY CLASSES
+   ============================================================ */
+
+.heading-1 {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-4xl);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-text);
+}
+
+.heading-2 {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-3xl);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-text);
+}
+
+.heading-3 {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-xl);
+  line-height: var(--line-height-snug);
+  color: var(--color-text);
+}
+
+.subheading {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-snug);
+  color: var(--color-text-light);
+}
+
+.body-text {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-light);
+}
+
+.caption {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-muted);
+}
+
+.label {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-sm);
+  letter-spacing: var(--letter-spacing-wider);
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+
+/* ============================================================
+   BUTTON COMPONENTS
+   ============================================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-base);
+  border-radius: var(--radius-full);
+  padding: var(--space-3) var(--space-8);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background-color: var(--color-accent);   /* Merah — main CTA */
+  color: var(--color-text-on-dark);
+  border-color: var(--color-accent);
+}
+.btn-primary:hover {
+  background-color: #8A2022;
+  border-color: #8A2022;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-text-on-dark);
+  border-color: var(--color-text-on-dark);
+}
+.btn-secondary:hover {
+  background-color: var(--color-text-on-dark);
+  color: var(--color-green-dark);
+}
+
+.btn-outline-green {
+  background-color: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+.btn-outline-green:hover {
+  background-color: var(--color-primary);
+  color: var(--color-text-on-dark);
+}
+
+.btn-sm {
+  font-size: var(--font-size-sm);
+  padding: var(--space-2) var(--space-5);
+}
+
+.btn-lg {
+  font-size: var(--font-size-md);
+  padding: var(--space-4) var(--space-10);
+}
+
+
+/* ============================================================
+   CARD COMPONENT
+   ============================================================ */
+
+.card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-light);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+.card-body {
+  padding: var(--space-6);
+}
+
+.card-tinted {
+  background: var(--color-surface-tinted);
+  border-color: transparent;
+}
+
+
+/* ============================================================
+   SECTION / LAYOUT HELPERS
+   ============================================================ */
+
+.container {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--space-6);
+}
+
+.section {
+  padding-block: var(--space-20);
+}
+
+.section-dark {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-on-dark);
+}
+
+.section-cream {
+  background-color: var(--color-bg);
+}
+
+.section-white {
+  background-color: var(--color-surface);
+}
+
+/* Section label above heading */
+.section-label {
+  display: inline-block;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-xs);
+  letter-spacing: var(--letter-spacing-wider);
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: var(--space-3);
+}
+
+
+/* ============================================================
+   NAV BAR
+   ============================================================ */
+
+.navbar {
+  height: var(--nav-height);
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border-light);
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  box-shadow: var(--shadow-sm);
+}
+
+.nav-link {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+.nav-link:hover,
+.nav-link.active {
+  color: var(--color-primary);
+}
+
+
+/* ============================================================
+   TAG / BADGE
+   ============================================================ */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-xs);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+}
+
+.badge-green {
+  background-color: var(--color-surface-tinted);
+  color: var(--color-green-dark);
+}
+
+.badge-red {
+  background-color: #FEE8E8;
+  color: var(--color-red);
+}
+
+.badge-brown {
+  background-color: #F5EFE4;
+  color: var(--color-brown);
+}
+
+
+/* ============================================================
+   GLOBAL BASE RESET
+   ============================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+img, video {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
