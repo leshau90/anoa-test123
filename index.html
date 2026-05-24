@@ -87,6 +87,62 @@
 .scroll-cue .line::after{content:"";position:absolute;top:-50%;left:0;width:1px;height:50%;background:var(--cream);animation:scrollDown 2s linear infinite}
 @keyframes scrollDown{0%{top:-50%}100%{top:100%}}
 
+/* page-specific: STAT STRIP (per PDF template) */
+.stat-strip{
+  position:relative;background:#E5E7DC;color:var(--ink);
+  padding:2.4rem 2rem 2.6rem;overflow:hidden;
+  border-bottom:1px solid rgba(0,0,0,.05);
+}
+.stat-strip .strip-vine{position:absolute;top:0;bottom:0;width:120px;height:100%;pointer-events:none;opacity:.6}
+.stat-strip .strip-vine.left{left:0}
+.stat-strip .strip-vine.right{right:0;transform:scaleX(-1)}
+.strip-inner{max-width:1280px;margin:0 auto;position:relative;z-index:2}
+.strip-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:.8rem}
+@media (max-width:1100px){.strip-grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:680px){.strip-grid{grid-template-columns:repeat(2,1fr)}}
+.stat-card{
+  background:#fff;border-radius:999px;
+  display:flex;align-items:center;gap:.85rem;
+  padding:.65rem 1.1rem .65rem .7rem;
+  box-shadow:0 6px 14px -10px rgba(31,78,44,.18);
+  border:1px solid rgba(31,78,44,.08);
+  transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease;
+}
+.stat-card:hover{transform:translateY(-3px);box-shadow:0 14px 28px -14px rgba(31,78,44,.28);border-color:rgba(74,124,63,.35)}
+.sc-ico{
+  width:42px;height:42px;border-radius:50%;
+  border:1.5px solid var(--leaf);
+  display:grid;place-items:center;color:var(--leaf);
+  flex:0 0 auto;background:#fff;
+}
+.sc-ico svg{width:20px;height:20px}
+.sc-num{
+  font-family:var(--sans);font-weight:800;
+  font-size:clamp(1.7rem,2.6vw,2.2rem);
+  line-height:1;letter-spacing:-0.03em;color:var(--leaf);
+  display:flex;align-items:baseline;gap:.05em;
+}
+.sc-num .plus{font-size:.6em;color:var(--leaf-l);font-weight:700}
+.sc-lbl{
+  font-size:.74rem;font-weight:600;letter-spacing:.01em;
+  color:rgba(0,0,0,.55);line-height:1.25;
+  margin-left:auto;text-align:right;max-width:9ch;
+}
+@media (max-width:480px){
+  .stat-card{padding:.6rem .9rem .6rem .6rem;gap:.6rem}
+  .sc-ico{width:36px;height:36px}
+  .sc-ico svg{width:17px;height:17px}
+  .sc-lbl{font-size:.68rem}
+}
+.strip-tag{
+  margin-top:1.6rem;text-align:center;
+  font-family:var(--serif);font-style:italic;font-weight:400;
+  font-size:clamp(1rem,1.6vw,1.25rem);
+  color:var(--forest);letter-spacing:-0.005em;
+  display:flex;align-items:center;justify-content:center;gap:.8rem;
+}
+.strip-tag svg{width:18px;height:18px;flex:0 0 auto;opacity:.85}
+
 /* page-specific: ANOA SPOTLIGHT */
 .anoa{background:var(--cream);color:var(--ink);padding:8rem 2rem 6rem;position:relative;overflow:hidden}
 .anoa::before{content:"";position:absolute;top:-2px;left:0;right:0;height:60px;background:linear-gradient(180deg,rgba(14,35,22,.08),transparent)}
@@ -300,14 +356,59 @@
         "Ketika anoa berjalan, hutan masih bernyawa."
       </div>
     </div>
-    <div class="hero-stats">
-      <div class="hs"><span class="hs-n" data-count="548">0</span><span class="hs-l">Pohon ditanam</span></div>
-      <div class="hs"><span class="hs-n" data-count="4">0</span><span class="hs-l">Pilar program</span></div>
-      <div class="hs"><span class="hs-n" data-count="13">0<span class="pct">+</span></span><span class="hs-l">Mitra strategis</span></div>
-      <div class="hs"><span class="hs-n" data-count="16">0</span><span class="hs-l">Anggota &amp; associate</span></div>
-    </div>
   </div>
   <div class="scroll-cue"><div class="line"></div>Scroll</div>
+</section>
+
+<!-- STAT STRIP (per PDF template) ===================================== -->
+<section class="stat-strip" aria-label="Statistik program">
+  <svg class="strip-vine left" viewBox="0 0 120 200" aria-hidden="true">
+    <path d="M-10 200 Q40 140 30 80 Q24 30 60 0" fill="none" stroke="#4A7C3F" stroke-width="1.2" opacity=".45"/>
+    <path d="M30 80 q-12 -8 -22 -2 q4 12 22 2 z" fill="#4A7C3F" opacity=".55"/>
+    <path d="M34 130 q-14 -6 -22 4 q6 12 22 -4 z" fill="#4A7C3F" opacity=".55"/>
+    <path d="M40 60 q12 -8 22 -2 q-4 12 -22 2 z" fill="#4A7C3F" opacity=".55"/>
+  </svg>
+  <svg class="strip-vine right" viewBox="0 0 120 200" aria-hidden="true">
+    <path d="M130 200 Q80 140 90 80 Q96 30 60 0" fill="none" stroke="#4A7C3F" stroke-width="1.2" opacity=".45"/>
+    <path d="M90 80 q12 -8 22 -2 q-4 12 -22 2 z" fill="#4A7C3F" opacity=".55"/>
+    <path d="M86 130 q14 -6 22 4 q-6 12 -22 -4 z" fill="#4A7C3F" opacity=".55"/>
+    <path d="M80 60 q-12 -8 -22 -2 q4 12 22 2 z" fill="#4A7C3F" opacity=".55"/>
+  </svg>
+
+  <div class="strip-inner">
+    <div class="strip-grid">
+      <article class="stat-card reveal">
+        <div class="sc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22V12"/><path d="M12 12c0-5 4-8 8-8 0 5-3 8-8 8z"/><path d="M12 12c0-4-3-7-7-7 0 4 3 7 7 7z"/></svg></div>
+        <div class="sc-num" data-count="548">0</div>
+        <div class="sc-lbl">Pohon ditanam</div>
+      </article>
+      <article class="stat-card reveal d1">
+        <div class="sc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7l4 4-4 4"/><path d="M11 7l4 4-4 4"/><path d="M19 7l4 4-4 4"/></svg></div>
+        <div class="sc-num" data-count="4">0</div>
+        <div class="sc-lbl">Pilar program</div>
+      </article>
+      <article class="stat-card reveal d2">
+        <div class="sc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5"/><path d="M14 20c0-2 2-4 5-4s4 2 4 4"/></svg></div>
+        <div class="sc-num"><span data-count="13">0</span><span class="plus">+</span></div>
+        <div class="sc-lbl">Mitra strategis</div>
+      </article>
+      <article class="stat-card reveal d3">
+        <div class="sc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div class="sc-num" data-count="6">0</div>
+        <div class="sc-lbl">Lokasi program</div>
+      </article>
+      <article class="stat-card reveal d4">
+        <div class="sc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22c-4-3-7-7-7-12a7 7 0 0114 0c0 5-3 9-7 12z"/><path d="M12 13a3 3 0 100-6 3 3 0 000 6z"/></svg></div>
+        <div class="sc-num" data-count="16">0</div>
+        <div class="sc-lbl">Anggota &amp; associate</div>
+      </article>
+    </div>
+    <p class="strip-tag">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21c0-5 3-9 9-10-2 6-6 9-9 10z" fill="#4A7C3F"/></svg>
+      “Alam Lestari dan Kearifan Masyarakat Nusantara”
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21c0-5-3-9-9-10 2 6 6 9 9 10z" fill="#4A7C3F"/></svg>
+    </p>
+  </div>
 </section>
 
 <!-- MARQUEE ============================================================ -->
