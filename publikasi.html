@@ -3,71 +3,210 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Yayasan Jejak Anoa Indonesia</title>
+<title>Publikasi — Yayasan Jejak Anoa Indonesia</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Fraunces:opsz,wght,SOFT@9..144,300..900,30..100&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="tokens.css"/>
-<link rel="stylesheet" href="main.css"/>
+<link rel="stylesheet" href="site.css"/>
+<style>
+.pub-filter{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:2rem}
+.pub-filter button{
+  font-size:.75rem;font-weight:600;letter-spacing:.05em;
+  padding:.55rem 1rem;border-radius:999px;
+  background:rgba(245,240,232,.05);color:rgba(245,240,232,.65);
+  border:1px solid rgba(245,240,232,.1);
+  transition:all .25s ease;
+}
+.pub-filter button:hover{color:var(--cream);border-color:var(--leaf-l)}
+.pub-filter button.on{background:var(--cream);color:var(--ink);border-color:var(--cream)}
+
+.pub-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+@media (max-width:1100px){.pub-grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:780px){.pub-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:480px){.pub-grid{grid-template-columns:1fr}}
+
+.pub{
+  position:relative;background:rgba(245,240,232,.04);
+  border:1px solid rgba(245,240,232,.08);border-radius:18px;overflow:hidden;
+  min-height:340px;display:flex;flex-direction:column;
+  transition:transform .4s ease,border-color .4s ease;cursor:pointer;
+}
+.pub:hover{transform:translateY(-6px);border-color:var(--pub-color,var(--leaf))}
+.pub .cover{
+  height:140px;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,var(--pub-color,#4A7C3F),var(--pub-color-2,#1F4E2C));
+  display:grid;place-items:center;color:rgba(245,240,232,.2);
+  font-family:var(--serif);font-style:italic;font-weight:300;font-size:5rem;line-height:1;
+}
+.pub .cover::after{content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 30% 20%,rgba(255,255,255,.18),transparent 60%);
+  pointer-events:none}
+.pub .body{padding:1.2rem 1.3rem 1.4rem;display:flex;flex-direction:column;flex:1}
+.pub .tipe{font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--pub-color,var(--leaf-l));margin-bottom:.6rem}
+.pub h4{font-size:.95rem;font-weight:700;color:var(--cream);line-height:1.35;letter-spacing:-0.01em;
+  margin-bottom:.8rem;flex:1}
+.pub .meta{display:flex;justify-content:space-between;align-items:center;font-size:.72rem;color:rgba(245,240,232,.5)}
+.pub .meta .arr{transition:transform .35s ease}
+.pub:hover .meta .arr{transform:translate(4px,-4px)}
+</style>
 </head>
-<body data-page="publikasi">
-<nav id="navbar">
-  <div class="nav-inner">
-    <div class="nav-logo" href="index.html">
-      <div class="nav-logo-badge" style="background:transparent;width:44px;height:44px;padding:0;overflow:hidden">
-        <img src="assets/logo.png" alt="Jejak Anoa" style="width:100%;height:100%;object-fit:contain">
-      </div>
-      <div class="nav-logo-text"><span class="t1" style="font-family:'Montserrat',sans-serif;font-weight:700">Jejak Anoa</span><span class="t2" style="font-family:'Montserrat',sans-serif">Indonesia</span></div>
-    </div>
-    <ul class="nav-links">
-      <li><a href="index.html" id="nl-beranda" class="active">Home</a></li>
-      <li><a href="tentang.html" id="nl-tentang">Tentang Kami</a></li>
-      <li><a href="program.html" id="nl-program">Program</a></li>
-      <li><a href="publikasi.html" id="nl-publikasi">Publikasi &amp; Penelitian</a></li>
-      <li><a href="mitra.html" id="nl-berita">Mitra &amp; Donor</a></li>
-      <li><a href="kontak.html" id="nl-kontak">Kontak</a></li>
-      <li><a href="donasi.html" id="nl-donasi" class="nav-btn-donasi">Donasi</a></li>
-      <li><a onclick="goLogin()" class="nav-btn-admin"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2 2H6a4 4 0 0 0-4 4h12a4 4 0 0 0-4-4z"/></svg>Admin</a></li>
-    </ul>
+<body>
+
+<nav class="top" id="topNav">
+  <a class="brand" href="index.html">
+    <div class="brand-mark"><svg viewBox="0 0 24 30"><path d="M5 4c2-2 5-2 5 2 0 4-1 9-2 13s-3 6-4 6-2-2-2-5 1-13 3-16z" fill="#F5F0E8"/><path d="M19 4c-2-2-5-2-5 2 0 4 1 9 2 13s3 6 4 6 2-2 2-5-1-13-3-16z" fill="#F5F0E8"/></svg></div>
+    <div class="brand-text"><b>Jejak Anoa</b><span>Indonesia · 2026</span></div>
+  </a>
+  <div class="nav-mid">
+    <a href="index.html">Beranda</a>
+    <a href="tentang.html">Tentang</a>
+    <a href="program.html">Program</a>
+    <a href="publikasi.html" class="active">Publikasi</a>
+    <a href="mitra.html">Mitra</a>
+    <a href="kontak.html">Kontak</a>
   </div>
+  <div class="nav-cta"><a class="nav-btn" href="donasi.html">Donasi
+    <svg class="arrow" width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a></div>
 </nav>
-<div class="view active" id="view-public">
-<div id="pp-publikasi">
-  <div style="padding-top:var(--nav-h)">
-    <section class="sec sec-dark" style="padding-top:5rem">
-      <div class="sec-glow"></div>
-      <div class="container" style="position:relative;z-index:1">
-        <div class="sec-lbl lbl-g"><span class="dot"></span>Pengetahuan & Data</div>
-        <h2 class="sec-h2 sec-h2-w">Publikasi &amp; Dokumen</h2><span class="ubar ubar-g"></span>
-        <p class="sec-lead sec-lead-w">Laporan riset, panduan teknis, dan dokumentasi pembelajaran untuk mendukung pengambilan keputusan berbasis bukti.</p>
-        <div class="pub-grid" id="pub-display"></div>
-      </div>
-    </section>
-  </div>
-</div>
-</div>
-<footer>
+
+<header class="page-head" data-parallax-host>
+  <div class="grain"></div>
+  <div class="hoof-trail" data-parallax data-hoof-trail="10"></div>
   <div class="container">
-    <div class="ft-top">
-      <div>
-        <div class="ft-brand" href="index.html">
-          <div class="fb-bdg" style="background:transparent;width:38px;height:38px;overflow:hidden"><img src="assets/logo.png" alt="JAI" style="width:100%;height:100%;object-fit:contain"></div>
-          <div><span class="fb-t1">Jejak Anoa Indonesia</span><span class="fb-t2">jejakanoa.id</span></div>
-        </div>
-        <p class="ft-desc">Organisasi nirlaba bergerak di bidang konservasi lingkungan, pemberdayaan masyarakat, penelitian, dan kegiatan kemanusiaan sejak 2023.</p>
-        <div class="ft-soc"><div class="fs">IG</div><div class="fs">FB</div><div class="fs">TW</div><div class="fs">YT</div></div>
+    <div class="crumb"><a href="index.html">Beranda</a> &nbsp;/&nbsp; Publikasi &amp; Penelitian</div>
+    <h1>Pengetahuan <span class="em">terbuka</span> untuk semua.</h1>
+    <p class="lede">Laporan riset, panduan teknis, dan dokumentasi pembelajaran untuk mendukung pengambilan keputusan berbasis bukti — tersedia gratis untuk publik.</p>
+  </div>
+</header>
+
+<section class="sec sec-dark">
+  <div class="container">
+    <div class="sec-head">
+      <div class="reveal">
+        <span class="eyebrow">Arsip · 2023 — 2026</span>
+        <h2 style="margin-top:.9rem">Publikasi <span class="em">&amp; dokumen.</span></h2>
       </div>
-      <div class="ft-col"><h5>Navigasi</h5><a href="index.html">Beranda</a><a href="tentang.html">Tentang Kami</a><a href="program.html">Program</a><a href="mitra.html">Berita</a><a href="publikasi.html">Publikasi</a><a href="kontak.html">Kontak</a></div>
-      <div class="ft-col"><h5>Program</h5><a>Pendidikan &amp; Penelitian</a><a>Pemberdayaan Sosial</a><a>Pelestarian Lingkungan</a><a>Kegiatan Kemanusiaan</a></div>
+      <p class="aside reveal d1">8 dokumen tersedia. Filter berdasarkan tipe — laporan riset, modul, panduan, atau policy brief.</p>
+    </div>
+
+    <div class="pub-filter reveal">
+      <button class="on">Semua</button>
+      <button>Laporan Riset</button>
+      <button>Panduan Teknis</button>
+      <button>Modul</button>
+      <button>Policy Brief</button>
+      <button>Studi Kasus</button>
+    </div>
+
+    <div class="pub-grid">
+      <article class="pub reveal" style="--pub-color:#4A7C3F;--pub-color-2:#1F4E2C">
+        <div class="cover">JR</div>
+        <div class="body">
+          <div class="tipe">Laporan Riset · 2025</div>
+          <h4>Pemodelan Distribusi Spesies Anoa Sulawesi Tenggara</h4>
+          <div class="meta"><span>PDF · 24 hal.</span><span class="arr">↗</span></div>
+        </div>
+      </article>
+      <article class="pub reveal d1" style="--pub-color:#8B6331;--pub-color-2:#5C3F1F">
+        <div class="cover">PT</div>
+        <div class="body">
+          <div class="tipe">Panduan Teknis · 2025</div>
+          <h4>Panduan Penanaman MPTS dengan Sistem Geotagging</h4>
+          <div class="meta"><span>PDF · 18 hal.</span><span class="arr">↗</span></div>
+        </div>
+      </article>
+      <article class="pub reveal d2" style="--pub-color:#A0272A;--pub-color-2:#5A1718">
+        <div class="cover">PB</div>
+        <div class="body">
+          <div class="tipe">Policy Brief · 2025</div>
+          <h4>Rekomendasi Konservasi Anoa di SM Buton Utara</h4>
+          <div class="meta"><span>PDF · 8 hal.</span><span class="arr">↗</span></div>
+        </div>
+      </article>
+      <article class="pub reveal d3" style="--pub-color:#B58C5C;--pub-color-2:#6E5230">
+        <div class="cover">LP</div>
+        <div class="body">
+          <div class="tipe">Laporan Program · 2024</div>
+          <h4>Laporan Tahunan Yayasan Jejak Anoa Indonesia 2024</h4>
+          <div class="meta"><span>PDF · 42 hal.</span><span class="arr">↗</span></div>
+        </div>
+      </article>
+      <article class="pub reveal" style="--pub-color:#4A7C3F;--pub-color-2:#1F4E2C">
+        <div class="cover">SK</div>
+        <div class="body">
+          <div class="tipe">Studi Kasus · 2024</div>
+          <h4>Rehabilitasi Mangrove Berbasis Masyarakat di Buton Utara</h4>
+          <div class="meta"><span>PDF · 16 hal.</span><span class="arr">↗</span></div>
+        </div>
+      </article>
+      <article class="pub reveal d1" style="--pub-color:#8B6331;--pub-color-2:#5C3F1F">
+        <div class="cover">MD</div>
+        <div class="body">
+          <div class="tipe">Modul Pelatihan · 2024</div>
+          <h4>Modul Agroforestri &amp; Rehabilitasi Lahan Masyarakat</h4>
+          <div class="meta"><span>PDF · 32 hal.</span><span class="arr">↗</span></div>
+        </div>
+      </article>
+      <article class="pub reveal d2" style="--pub-color:#A0272A;--pub-color-2:#5A1718">
+        <div class="cover">JR</div>
+        <div class="body">
+          <div class="tipe">Laporan Riset · 2023</div>
+          <h4>Keanekaragaman Hayati Sub DAS Ciampea, Kab. Bogor</h4>
+          <div class="meta"><span>PDF · 28 hal.</span><span class="arr">↗</span></div>
+        </div>
+      </article>
+      <article class="pub reveal d3" style="--pub-color:#B58C5C;--pub-color-2:#6E5230">
+        <div class="cover">DK</div>
+        <div class="body">
+          <div class="tipe">Dokumentasi · 2026</div>
+          <h4>Profil Lembaga Yayasan Jejak Anoa Indonesia</h4>
+          <div class="meta"><span>PDF · 22 hal.</span><span class="arr">↗</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="ft-wrap">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <div class="brand-row">
+          <div class="brand-mark" style="background:var(--red)"><svg viewBox="0 0 24 30"><path d="M5 4c2-2 5-2 5 2 0 4-1 9-2 13s-3 6-4 6-2-2-2-5 1-13 3-16z" fill="#F5F0E8"/><path d="M19 4c-2-2-5-2-5 2 0 4 1 9 2 13s3 6 4 6 2-2 2-5-1-13-3-16z" fill="#F5F0E8"/></svg></div>
+          <div class="brand-text"><b style="color:var(--cream)">Jejak Anoa</b><span>Indonesia</span></div>
+        </div>
+        <p>Organisasi nirlaba bergerak di bidang konservasi lingkungan, pemberdayaan masyarakat, penelitian, dan kegiatan kemanusiaan sejak 2023.</p>
+        <div class="ft-soc"><a>IG</a><a>FB</a><a>TW</a><a>YT</a></div>
+      </div>
+      <div class="ft-col"><h5>Navigasi</h5><a href="index.html">Beranda</a><a href="tentang.html">Tentang Kami</a><a href="program.html">Program</a><a href="publikasi.html">Publikasi</a><a href="mitra.html">Mitra &amp; Donor</a><a href="kontak.html">Kontak</a></div>
+      <div class="ft-col"><h5>Program</h5><a>Pelestarian Lingkungan</a><a>Pemberdayaan Sosial</a><a>Pendidikan &amp; Penelitian</a><a>Kegiatan Kemanusiaan</a></div>
       <div class="ft-col"><h5>Kontak</h5><a>Ciherang, Dramaga, Bogor</a><a>+62 812-3424-9652</a><a>yayasan@jejakanoa.id</a><a href="donasi.html">Donasi</a></div>
     </div>
+    <div class="ft-wordmark"><span>JEJAK</span><svg class="hoof" viewBox="0 0 24 30"><path d="M5 4c2-2 5-2 5 2 0 4-1 9-2 13s-3 6-4 6-2-2-2-5 1-13 3-16z"/><path d="M19 4c-2-2-5-2-5 2 0 4 1 9 2 13s3 6 4 6 2-2 2-5-1-13-3-16z"/></svg><span>ANOA</span></div>
     <div class="ft-bot">
-      <p class="ft-copy">© 2026 <strong>Yayasan Jejak Anoa Indonesia</strong> · AHU-0002237.AH.01.04</p>
-      <p class="ft-copy">Dibuat dengan semangat pelestarian alam Nusantara</p>
+      <p>© 2026 Yayasan Jejak Anoa Indonesia · AHU-0002237.AH.01.04</p>
+      <p>Dibuat dengan semangat pelestarian alam Nusantara.</p>
     </div>
   </div>
 </footer>
-<script src="data.js"></script>
-<script src="app.js"></script>
+
+<script src="site.js"></script>
+<script>
+// simple pub filter (visual only)
+const btns = document.querySelectorAll('.pub-filter button');
+const pubs = document.querySelectorAll('.pub');
+btns.forEach((b,i) => b.addEventListener('click', () => {
+  btns.forEach(x => x.classList.remove('on'));
+  b.classList.add('on');
+  const key = b.textContent.trim().toLowerCase();
+  pubs.forEach(p => {
+    const t = p.querySelector('.tipe').textContent.toLowerCase();
+    p.style.display = (key === 'semua' || t.includes(key)) ? '' : 'none';
+  });
+}));
+</script>
 </body>
 </html>

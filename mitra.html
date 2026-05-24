@@ -3,77 +3,239 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Yayasan Jejak Anoa Indonesia</title>
+<title>Mitra &amp; Donor — Yayasan Jejak Anoa Indonesia</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Fraunces:opsz,wght,SOFT@9..144,300..900,30..100&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="tokens.css"/>
-<link rel="stylesheet" href="main.css"/>
+<link rel="stylesheet" href="site.css"/>
+<style>
+/* Partner grid */
+.partners{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+  background:rgba(0,0,0,.08);border-radius:14px;overflow:hidden}
+@media (max-width:880px){.partners{grid-template-columns:repeat(2,1fr)}}
+.partner{
+  background:var(--cream);padding:1.6rem 1.4rem;display:flex;flex-direction:column;justify-content:space-between;
+  min-height:160px;transition:background .35s ease;position:relative;
+}
+.partner:hover{background:#fff}
+.partner .ct{font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--leaf)}
+.partner .nm{font-family:var(--sans);font-weight:700;font-size:1rem;color:var(--ink);letter-spacing:-0.01em;line-height:1.3;margin-top:.4rem}
+.partner .kt{font-size:.72rem;color:rgba(0,0,0,.5);margin-top:.6rem;line-height:1.5}
+
+/* News grid (modern editorial) */
+.news{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:1rem;margin-top:1rem}
+@media (max-width:1024px){.news{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.news{grid-template-columns:1fr}}
+.n-card{background:rgba(245,240,232,.04);border:1px solid rgba(245,240,232,.08);
+  border-radius:18px;overflow:hidden;display:flex;flex-direction:column;
+  transition:transform .4s ease,border-color .4s ease;cursor:pointer}
+.n-card:hover{transform:translateY(-4px);border-color:var(--leaf-l)}
+.n-card.feat{grid-row:span 2}
+.n-card .img{background:linear-gradient(135deg,#1F4E2C,#0E2316);aspect-ratio:16/10;position:relative;overflow:hidden}
+.n-card.feat .img{aspect-ratio:4/5}
+.n-card .img.r{background:linear-gradient(135deg,#A0272A,#5A1718)}
+.n-card .img.b{background:linear-gradient(135deg,#8B6331,#5C3F1F)}
+.n-card .img.k{background:linear-gradient(135deg,#7BA670,#1F4E2C)}
+.n-card .img::after{content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 30% 20%,rgba(255,255,255,.15),transparent 60%)}
+.n-card .img .cat{position:absolute;left:1rem;top:1rem;
+  font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  background:rgba(14,35,22,.6);color:var(--cream);padding:.35rem .65rem;border-radius:999px;
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);z-index:2}
+.n-card .bd{padding:1.2rem 1.4rem 1.4rem;display:flex;flex-direction:column;gap:.5rem;flex:1}
+.n-card .dt{font-size:.72rem;color:rgba(245,240,232,.5);font-weight:500;letter-spacing:.02em}
+.n-card h3{font-family:var(--sans);font-weight:700;font-size:1rem;color:var(--cream);
+  letter-spacing:-0.01em;line-height:1.3}
+.n-card.feat h3{font-size:1.6rem;line-height:1.15}
+.n-card p{font-size:.82rem;color:rgba(245,240,232,.55);line-height:1.6;flex:1}
+.n-card .more{font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--leaf-l);display:flex;align-items:center;gap:.4rem;margin-top:.4rem}
+
+.filter-row{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:2rem}
+.filter-row button{
+  font-size:.75rem;font-weight:600;padding:.55rem 1rem;border-radius:999px;
+  background:rgba(245,240,232,.05);color:rgba(245,240,232,.65);
+  border:1px solid rgba(245,240,232,.1);transition:all .25s ease;
+}
+.filter-row button:hover{color:var(--cream);border-color:var(--leaf-l)}
+.filter-row button.on{background:var(--cream);color:var(--ink);border-color:var(--cream)}
+</style>
 </head>
-<body data-page="berita">
-<nav id="navbar">
-  <div class="nav-inner">
-    <div class="nav-logo" href="index.html">
-      <div class="nav-logo-badge" style="background:transparent;width:44px;height:44px;padding:0;overflow:hidden">
-        <img src="assets/logo.png" alt="Jejak Anoa" style="width:100%;height:100%;object-fit:contain">
-      </div>
-      <div class="nav-logo-text"><span class="t1" style="font-family:'Montserrat',sans-serif;font-weight:700">Jejak Anoa</span><span class="t2" style="font-family:'Montserrat',sans-serif">Indonesia</span></div>
-    </div>
-    <ul class="nav-links">
-      <li><a href="index.html" id="nl-beranda" class="active">Home</a></li>
-      <li><a href="tentang.html" id="nl-tentang">Tentang Kami</a></li>
-      <li><a href="program.html" id="nl-program">Program</a></li>
-      <li><a href="publikasi.html" id="nl-publikasi">Publikasi &amp; Penelitian</a></li>
-      <li><a href="mitra.html" id="nl-berita">Mitra &amp; Donor</a></li>
-      <li><a href="kontak.html" id="nl-kontak">Kontak</a></li>
-      <li><a href="donasi.html" id="nl-donasi" class="nav-btn-donasi">Donasi</a></li>
-      <li><a onclick="goLogin()" class="nav-btn-admin"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2 2H6a4 4 0 0 0-4 4h12a4 4 0 0 0-4-4z"/></svg>Admin</a></li>
-    </ul>
+<body>
+
+<nav class="top" id="topNav">
+  <a class="brand" href="index.html">
+    <div class="brand-mark"><svg viewBox="0 0 24 30"><path d="M5 4c2-2 5-2 5 2 0 4-1 9-2 13s-3 6-4 6-2-2-2-5 1-13 3-16z" fill="#F5F0E8"/><path d="M19 4c-2-2-5-2-5 2 0 4 1 9 2 13s3 6 4 6 2-2 2-5-1-13-3-16z" fill="#F5F0E8"/></svg></div>
+    <div class="brand-text"><b>Jejak Anoa</b><span>Indonesia · 2026</span></div>
+  </a>
+  <div class="nav-mid">
+    <a href="index.html">Beranda</a>
+    <a href="tentang.html">Tentang</a>
+    <a href="program.html">Program</a>
+    <a href="publikasi.html">Publikasi</a>
+    <a href="mitra.html" class="active">Mitra</a>
+    <a href="kontak.html">Kontak</a>
   </div>
+  <div class="nav-cta"><a class="nav-btn" href="donasi.html">Donasi
+    <svg class="arrow" width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a></div>
 </nav>
-<div class="view active" id="view-public">
-<div id="pp-berita">
-  <div style="padding-top:var(--nav-h)">
-    <section class="sec sec-dark" style="padding-top:5rem">
-      <div class="sec-glow"></div>
-      <div class="container" style="position:relative;z-index:1">
-        <div class="sec-lbl lbl-g"><span class="dot"></span>Kabar Terbaru</div>
-        <h2 class="sec-h2 sec-h2-w">Berita &amp; Artikel</h2><span class="ubar ubar-g"></span>
-        <div class="filter-row" style="margin-top:2rem">
-          <button class="fb active" onclick="filterBerita(this,'')">Semua</button>
-          <button class="fb" onclick="filterBerita(this,'Kabar YKL')">Kabar YKL</button>
-          <button class="fb" onclick="filterBerita(this,'Liputan Media')">Liputan Media</button>
-          <button class="fb" onclick="filterBerita(this,'Artikel')">Artikel</button>
-          <button class="fb" onclick="filterBerita(this,'Acara')">Acara</button>
-        </div>
-        <div class="news-grid" id="berita-display-full" style="margin-top:0"></div>
-      </div>
-    </section>
-  </div>
-</div>
-</div>
-<footer>
+
+<header class="page-head" data-parallax-host>
+  <div class="grain"></div>
+  <div class="hoof-trail" data-parallax data-hoof-trail="10"></div>
   <div class="container">
-    <div class="ft-top">
-      <div>
-        <div class="ft-brand" href="index.html">
-          <div class="fb-bdg" style="background:transparent;width:38px;height:38px;overflow:hidden"><img src="assets/logo.png" alt="JAI" style="width:100%;height:100%;object-fit:contain"></div>
-          <div><span class="fb-t1">Jejak Anoa Indonesia</span><span class="fb-t2">jejakanoa.id</span></div>
-        </div>
-        <p class="ft-desc">Organisasi nirlaba bergerak di bidang konservasi lingkungan, pemberdayaan masyarakat, penelitian, dan kegiatan kemanusiaan sejak 2023.</p>
-        <div class="ft-soc"><div class="fs">IG</div><div class="fs">FB</div><div class="fs">TW</div><div class="fs">YT</div></div>
+    <div class="crumb"><a href="index.html">Beranda</a> &nbsp;/&nbsp; Mitra &amp; Donor</div>
+    <h1>Berjalan <span class="em">bersama,</span><br>bukan sendirian.</h1>
+    <p class="lede">Konservasi tidak bisa dilakukan sendiri. Kami bekerja bersama 13+ mitra strategis — pemerintah, akademisi, masyarakat sipil, dan kelompok tani — untuk hasil yang nyata di lapangan.</p>
+  </div>
+</header>
+
+<!-- PARTNERS -->
+<section class="sec sec-cream">
+  <div class="container">
+    <div class="sec-head">
+      <div class="reveal">
+        <span class="eyebrow on-cream">Mitra Strategis</span>
+        <h2 style="margin-top:.9rem">Dukungan <span class="em">lintas sektor.</span></h2>
       </div>
-      <div class="ft-col"><h5>Navigasi</h5><a href="index.html">Beranda</a><a href="tentang.html">Tentang Kami</a><a href="program.html">Program</a><a href="mitra.html">Berita</a><a href="publikasi.html">Publikasi</a><a href="kontak.html">Kontak</a></div>
-      <div class="ft-col"><h5>Program</h5><a>Pendidikan &amp; Penelitian</a><a>Pemberdayaan Sosial</a><a>Pelestarian Lingkungan</a><a>Kegiatan Kemanusiaan</a></div>
+      <p class="aside reveal d1">Mulai dari KTH desa hingga lembaga pemerintah pusat — semua dengan satu tujuan: konservasi yang adil dan berkelanjutan.</p>
+    </div>
+
+    <div class="partners reveal">
+      <div class="partner"><span class="ct">— Pemerintah</span><div class="nm">BKSDA Sulawesi Tenggara</div><div class="kt">Mitra utama konservasi anoa di Buton Utara.</div></div>
+      <div class="partner"><span class="ct">— KPH</span><div class="nm">KPH Peropae'a</div><div class="kt">Pengelolaan kawasan hutan di Buton Utara.</div></div>
+      <div class="partner"><span class="ct">— NGO</span><div class="nm">PILI Indonesia</div><div class="kt">Kolaborasi program konservasi nasional.</div></div>
+      <div class="partner"><span class="ct">— Akademik</span><div class="nm">IPB University</div><div class="kt">Riset dan pengembangan kapasitas.</div></div>
+      <div class="partner"><span class="ct">— Pemerintah</span><div class="nm">Pemda Buton Utara</div><div class="kt">Dukungan administratif dan pelaksanaan.</div></div>
+      <div class="partner"><span class="ct">— Komunitas</span><div class="nm">KTH Desa Lauki</div><div class="kt">Kelompok tani hutan, Buton Utara.</div></div>
+      <div class="partner"><span class="ct">— Komunitas</span><div class="nm">KTH Desa Pure</div><div class="kt">Kelompok tani hutan, Buton Utara.</div></div>
+      <div class="partner"><span class="ct">— Komunitas</span><div class="nm">GAPOKTAN Benteng</div><div class="kt">Kelompok tani Desa Benteng, Ciampea.</div></div>
+      <div class="partner"><span class="ct">— Pemerintah</span><div class="nm">Pemprov Sulawesi</div><div class="kt">Koordinasi program lintas kabupaten.</div></div>
+      <div class="partner"><span class="ct">— Donor</span><div class="nm">BPDLH Kemenkeu</div><div class="kt">Dukungan pendanaan lingkungan hidup.</div></div>
+      <div class="partner"><span class="ct">— NGO</span><div class="nm">WWF Indonesia</div><div class="kt">Pertukaran pengetahuan konservasi.</div></div>
+      <div class="partner"><span class="ct">— NGO</span><div class="nm">KEHATI</div><div class="kt">Yayasan keanekaragaman hayati.</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" data-marquee="BKSDA · IPB · PILI · BPDLH · WWF · KEHATI|13+ Mitra Strategis|Lintas Pemerintah · Akademik · Komunitas"></div>
+
+<!-- NEWS -->
+<section class="sec sec-dark">
+  <div class="container">
+    <div class="sec-head">
+      <div class="reveal">
+        <span class="eyebrow">Kabar Terbaru</span>
+        <h2 style="margin-top:.9rem">Berita <span class="em">&amp; kegiatan.</span></h2>
+      </div>
+      <p class="aside reveal d1">Cerita lapangan, liputan media, dan artikel — sinkron dengan ritme kerja yang sedang berjalan.</p>
+    </div>
+
+    <div class="filter-row reveal">
+      <button class="on">Semua</button>
+      <button>Kabar YKL</button>
+      <button>Liputan Media</button>
+      <button>Artikel</button>
+      <button>Acara</button>
+    </div>
+
+    <div class="news">
+      <article class="n-card feat reveal" data-cat="kabar ykl">
+        <div class="img"><span class="cat">Kabar YKL</span></div>
+        <div class="bd">
+          <span class="dt">15 Maret 2026</span>
+          <h3>Penanaman 548 Pohon MPTS di Hulu Sub DAS Ciampea</h3>
+          <p>Penanaman pohon durian dan alpukat dengan sistem geotagging di Kabupaten Bogor bersama masyarakat Desa Benteng, Ciampea — upaya rehabilitasi lahan jangka panjang.</p>
+          <div class="more">Baca selengkapnya →</div>
+        </div>
+      </article>
+      <article class="n-card reveal d1" data-cat="liputan media">
+        <div class="img r"><span class="cat">Liputan Media</span></div>
+        <div class="bd">
+          <span class="dt">2 Maret 2026</span>
+          <h3>Jejak Anoa di Suaka Margasatwa Buton Utara</h3>
+          <p>Inisiasi konservasi Anoa di kawasan SM Buton Utara bersama BKSDA Sultra.</p>
+          <div class="more">Baca →</div>
+        </div>
+      </article>
+      <article class="n-card reveal d2" data-cat="artikel">
+        <div class="img b"><span class="cat">Artikel</span></div>
+        <div class="bd">
+          <span class="dt">18 Februari 2026</span>
+          <h3>Rehabilitasi Mangrove Berbasis Masyarakat</h3>
+          <p>Kolaborasi KTH dan Pemerintah Desa di enam desa Buton Utara.</p>
+          <div class="more">Baca →</div>
+        </div>
+      </article>
+      <article class="n-card reveal d1" data-cat="kabar ykl">
+        <div class="img k"><span class="cat">Kabar YKL</span></div>
+        <div class="bd">
+          <span class="dt">10 Februari 2026</span>
+          <h3>Kolaborasi Program Bersama PILI Indonesia</h3>
+          <p>Penandatanganan dokumen kolaborasi antara PILI dan Yayasan Jejak Anoa.</p>
+          <div class="more">Baca →</div>
+        </div>
+      </article>
+      <article class="n-card reveal d2" data-cat="acara">
+        <div class="img"><span class="cat">Acara</span></div>
+        <div class="bd">
+          <span class="dt">28 Januari 2026</span>
+          <h3>Workshop Agroforestri Petani Desa Benteng</h3>
+          <p>Diskusi &amp; pelatihan teknik agroforestri berbasis kemitraan.</p>
+          <div class="more">Baca →</div>
+        </div>
+      </article>
+      <article class="n-card reveal d3" data-cat="artikel">
+        <div class="img r"><span class="cat">Artikel</span></div>
+        <div class="bd">
+          <span class="dt">15 Januari 2026</span>
+          <h3>Pemodelan Distribusi Spesies Anoa di Sultra</h3>
+          <p>Laporan hasil penelitian keanekaragaman hayati dan pemodelan spesies endemik.</p>
+          <div class="more">Baca →</div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="ft-wrap">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <div class="brand-row">
+          <div class="brand-mark" style="background:var(--red)"><svg viewBox="0 0 24 30"><path d="M5 4c2-2 5-2 5 2 0 4-1 9-2 13s-3 6-4 6-2-2-2-5 1-13 3-16z" fill="#F5F0E8"/><path d="M19 4c-2-2-5-2-5 2 0 4 1 9 2 13s3 6 4 6 2-2 2-5-1-13-3-16z" fill="#F5F0E8"/></svg></div>
+          <div class="brand-text"><b style="color:var(--cream)">Jejak Anoa</b><span>Indonesia</span></div>
+        </div>
+        <p>Organisasi nirlaba bergerak di bidang konservasi lingkungan, pemberdayaan masyarakat, penelitian, dan kegiatan kemanusiaan sejak 2023.</p>
+        <div class="ft-soc"><a>IG</a><a>FB</a><a>TW</a><a>YT</a></div>
+      </div>
+      <div class="ft-col"><h5>Navigasi</h5><a href="index.html">Beranda</a><a href="tentang.html">Tentang Kami</a><a href="program.html">Program</a><a href="publikasi.html">Publikasi</a><a href="mitra.html">Mitra &amp; Donor</a><a href="kontak.html">Kontak</a></div>
+      <div class="ft-col"><h5>Program</h5><a>Pelestarian Lingkungan</a><a>Pemberdayaan Sosial</a><a>Pendidikan &amp; Penelitian</a><a>Kegiatan Kemanusiaan</a></div>
       <div class="ft-col"><h5>Kontak</h5><a>Ciherang, Dramaga, Bogor</a><a>+62 812-3424-9652</a><a>yayasan@jejakanoa.id</a><a href="donasi.html">Donasi</a></div>
     </div>
+    <div class="ft-wordmark"><span>JEJAK</span><svg class="hoof" viewBox="0 0 24 30"><path d="M5 4c2-2 5-2 5 2 0 4-1 9-2 13s-3 6-4 6-2-2-2-5 1-13 3-16z"/><path d="M19 4c-2-2-5-2-5 2 0 4 1 9 2 13s3 6 4 6 2-2 2-5-1-13-3-16z"/></svg><span>ANOA</span></div>
     <div class="ft-bot">
-      <p class="ft-copy">© 2026 <strong>Yayasan Jejak Anoa Indonesia</strong> · AHU-0002237.AH.01.04</p>
-      <p class="ft-copy">Dibuat dengan semangat pelestarian alam Nusantara</p>
+      <p>© 2026 Yayasan Jejak Anoa Indonesia · AHU-0002237.AH.01.04</p>
+      <p>Dibuat dengan semangat pelestarian alam Nusantara.</p>
     </div>
   </div>
 </footer>
-<script src="data.js"></script>
-<script src="app.js"></script>
+
+<script src="site.js"></script>
+<script>
+// news filter
+const fb = document.querySelectorAll('.filter-row button');
+const nc = document.querySelectorAll('.n-card');
+fb.forEach(b => b.addEventListener('click', () => {
+  fb.forEach(x => x.classList.remove('on'));
+  b.classList.add('on');
+  const key = b.textContent.trim().toLowerCase();
+  nc.forEach(c => {
+    c.style.display = (key === 'semua' || (c.dataset.cat || '').includes(key)) ? '' : 'none';
+  });
+}));
+</script>
 </body>
 </html>

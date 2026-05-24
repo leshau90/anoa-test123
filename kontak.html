@@ -3,120 +3,224 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Yayasan Jejak Anoa Indonesia</title>
+<title>Kontak — Yayasan Jejak Anoa Indonesia</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Fraunces:opsz,wght,SOFT@9..144,300..900,30..100&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="tokens.css"/>
-<link rel="stylesheet" href="main.css"/>
+<link rel="stylesheet" href="site.css"/>
+<style>
+.kt-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+@media (max-width:920px){.kt-grid{grid-template-columns:1fr}}
+
+.k-quote{
+  font-family:var(--serif);font-style:italic;font-weight:300;
+  font-size:clamp(1.4rem,2.2vw,2rem);line-height:1.3;
+  color:rgba(245,240,232,.85);max-width:560px;
+}
+.k-quote .q{color:var(--leaf-l);font-family:var(--sans);font-weight:900;font-size:1.2em;line-height:0;vertical-align:bottom}
+
+.ki-list{display:flex;flex-direction:column;gap:0;margin-top:2rem;border-top:1px solid rgba(245,240,232,.08)}
+.ki{display:grid;grid-template-columns:48px 1fr;gap:1.2rem;
+  padding:1.4rem 0;border-bottom:1px solid rgba(245,240,232,.08);align-items:start;
+  transition:padding .35s ease}
+.ki:hover{padding-left:.4rem}
+.ki-ico{width:48px;height:48px;border-radius:12px;background:rgba(245,240,232,.05);
+  border:1px solid rgba(245,240,232,.1);display:grid;place-items:center;color:var(--leaf-l);
+  transition:background .35s ease,color .35s ease,border-color .35s ease}
+.ki:hover .ki-ico{background:var(--leaf);color:var(--cream);border-color:var(--leaf)}
+.ki-ico svg{width:18px;height:18px}
+.ki .l{font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,240,232,.5);margin-bottom:.3rem}
+.ki .v{font-size:.95rem;color:var(--cream);font-weight:500;line-height:1.5;letter-spacing:-0.005em}
+.ki .v a{color:inherit;border-bottom:1px solid transparent;transition:border-color .25s ease}
+.ki .v a:hover{border-color:var(--leaf-l)}
+
+/* Social */
+.k-soc{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+.k-soc a{
+  display:flex;align-items:center;gap:.4rem;
+  font-size:.78rem;font-weight:600;color:rgba(245,240,232,.7);
+  padding:.5rem .9rem;border:1px solid rgba(245,240,232,.15);border-radius:999px;
+  transition:all .25s ease;
+}
+.k-soc a:hover{color:var(--cream);border-color:var(--leaf-l);background:rgba(245,240,232,.04)}
+.k-soc a svg{width:14px;height:14px}
+
+/* Form */
+.kf{
+  background:rgba(245,240,232,.04);border:1px solid rgba(245,240,232,.1);
+  border-radius:24px;padding:2.2rem;position:relative;
+}
+.kf::before{
+  content:"";position:absolute;top:-1px;right:-1px;width:80px;height:80px;
+  background:linear-gradient(135deg,var(--leaf-l),transparent 70%);
+  opacity:.25;border-top-right-radius:24px;pointer-events:none;
+}
+.kf h3{font-family:var(--sans);font-weight:700;font-size:1.4rem;color:var(--cream);letter-spacing:-0.02em;margin-bottom:.4rem}
+.kf .sub{font-size:.82rem;color:rgba(245,240,232,.55);margin-bottom:1.8rem}
+.kf-row{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1.1rem}
+.kf-row label{font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,240,232,.55)}
+.kf-row input,.kf-row textarea,.kf-row select{
+  background:transparent;border:0;border-bottom:1px solid rgba(245,240,232,.2);
+  color:var(--cream);font:inherit;font-size:.95rem;
+  padding:.7rem 0;outline:none;transition:border-color .25s ease;
+}
+.kf-row input:focus,.kf-row textarea:focus,.kf-row select:focus{border-color:var(--leaf-l)}
+.kf-row textarea{resize:vertical;min-height:90px}
+.kf-row select{appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='%237BA670'><path d='M2 4l4 4 4-4z'/></svg>");background-repeat:no-repeat;background-position:right .2rem center;background-size:14px}
+.kf-row select option{background:var(--ink);color:var(--cream)}
+.kf-submit{
+  display:inline-flex;align-items:center;gap:.6rem;
+  background:var(--cream);color:var(--ink);
+  font-size:.85rem;font-weight:700;letter-spacing:.02em;
+  padding:1rem 1.6rem;border-radius:999px;margin-top:.6rem;
+  transition:transform .35s ease,box-shadow .35s ease;
+}
+.kf-submit:hover{transform:translateY(-2px);box-shadow:0 14px 30px -16px rgba(123,166,112,.5)}
+
+/* support letters */
+.kp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin-top:1rem}
+@media (max-width:800px){.kp-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:500px){.kp-grid{grid-template-columns:1fr}}
+.kpi{
+  background:rgba(245,240,232,.04);border:1px solid rgba(245,240,232,.08);
+  border-left:3px solid var(--bark-l);border-radius:6px;padding:.7rem 1rem;
+  font-size:.78rem;color:rgba(245,240,232,.7);line-height:1.45;
+  transition:border-color .25s ease,background .25s ease
+}
+.kpi:hover{background:rgba(245,240,232,.06);border-left-color:var(--leaf-l);color:var(--cream)}
+</style>
 </head>
-<body data-page="kontak">
-<nav id="navbar">
-  <div class="nav-inner">
-    <div class="nav-logo" href="index.html">
-      <div class="nav-logo-badge" style="background:transparent;width:44px;height:44px;padding:0;overflow:hidden">
-        <img src="assets/logo.png" alt="Jejak Anoa" style="width:100%;height:100%;object-fit:contain">
-      </div>
-      <div class="nav-logo-text"><span class="t1" style="font-family:'Montserrat',sans-serif;font-weight:700">Jejak Anoa</span><span class="t2" style="font-family:'Montserrat',sans-serif">Indonesia</span></div>
-    </div>
-    <ul class="nav-links">
-      <li><a href="index.html" id="nl-beranda" class="active">Home</a></li>
-      <li><a href="tentang.html" id="nl-tentang">Tentang Kami</a></li>
-      <li><a href="program.html" id="nl-program">Program</a></li>
-      <li><a href="publikasi.html" id="nl-publikasi">Publikasi &amp; Penelitian</a></li>
-      <li><a href="mitra.html" id="nl-berita">Mitra &amp; Donor</a></li>
-      <li><a href="kontak.html" id="nl-kontak">Kontak</a></li>
-      <li><a href="donasi.html" id="nl-donasi" class="nav-btn-donasi">Donasi</a></li>
-      <li><a onclick="goLogin()" class="nav-btn-admin"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2 2H6a4 4 0 0 0-4 4h12a4 4 0 0 0-4-4z"/></svg>Admin</a></li>
-    </ul>
+<body>
+
+<nav class="top" id="topNav">
+  <a class="brand" href="index.html">
+    <div class="brand-mark"><svg viewBox="0 0 24 30"><path d="M5 4c2-2 5-2 5 2 0 4-1 9-2 13s-3 6-4 6-2-2-2-5 1-13 3-16z" fill="#F5F0E8"/><path d="M19 4c-2-2-5-2-5 2 0 4 1 9 2 13s3 6 4 6 2-2 2-5-1-13-3-16z" fill="#F5F0E8"/></svg></div>
+    <div class="brand-text"><b>Jejak Anoa</b><span>Indonesia · 2026</span></div>
+  </a>
+  <div class="nav-mid">
+    <a href="index.html">Beranda</a>
+    <a href="tentang.html">Tentang</a>
+    <a href="program.html">Program</a>
+    <a href="publikasi.html">Publikasi</a>
+    <a href="mitra.html">Mitra</a>
+    <a href="kontak.html" class="active">Kontak</a>
   </div>
+  <div class="nav-cta"><a class="nav-btn" href="donasi.html">Donasi
+    <svg class="arrow" width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a></div>
 </nav>
-<div class="view active" id="view-public">
-<div id="pp-kontak">
-  <div style="padding-top:var(--nav-h)">
-    <section class="sec sec-dark" style="padding-top:5rem">
-      <div class="sec-glow"></div>
-      <div class="container" style="position:relative;z-index:1">
-        <div class="sec-lbl lbl-g"><span class="dot"></span>Hubungi Kami</div>
-        <h2 class="sec-h2 sec-h2-w">Kontak &amp; Alamat</h2><span class="ubar ubar-g"></span>
-        <p style="font-family:'Montserrat',sans-serif;font-size:1.15rem;color:rgba(255,255,255,.55);max-width:600px;line-height:1.65;margin-top:.9rem" id="kontak-quote-display">«Jejak Anoa berupaya mewujudkan konservasi alam yang bijak dan adil melalui pendekatan holistik berbasis ilmu pengetahuan yang bermanfaat bagi semua.»</p>
-        <div class="kt-grid" style="margin-top:3rem">
-          <div>
-            <h3 style="font-size:1rem;font-weight:700;margin-bottom:1.3rem;color:#fff">Informasi Kontak</h3>
-            <div class="ki"><div class="ki-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#43a047" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="ki-lbl">Kantor</div><div class="ki-val" id="kontak-alamat-display">Perumahan Salak View Blok B No. 11, Ciherang, Dramaga, Bogor, Jawa Barat</div></div></div>
-            <div class="ki"><div class="ki-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#43a047" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-7-7 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.25h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.95-.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg></div><div><div class="ki-lbl">Telepon</div><div class="ki-val" id="kontak-telp-display">+62 812-3424-9652 · +62 853-9429-0401</div></div></div>
-            <div class="ki"><div class="ki-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#43a047" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="ki-lbl">Email</div><div class="ki-val" id="kontak-email-display">yayasan@jejakanoa.id</div></div></div>
-            <div class="ki"><div class="ki-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#43a047" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div><div><div class="ki-lbl">WhatsApp</div><div class="ki-val"><a href="https://wa.me/6281234249652" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">+62 812-3424-9652</a></div></div></div>
-            <div style="margin-top:1.5rem">
-              <div style="font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:.85rem">Media Sosial</div>
-              <div id="kontak-sosmed" style="display:flex;gap:.75rem;flex-wrap:wrap">
-                <a href="https://instagram.com/jejakanoa" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:.4rem;color:rgba(255,255,255,.7);font-family:'Montserrat',sans-serif;font-size:.8rem;font-weight:600;text-decoration:none;padding:.4rem .75rem;border:1px solid rgba(255,255,255,.15);border-radius:4px">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                  Instagram
-                </a>
-                <a href="https://facebook.com/jejakanoa" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:.4rem;color:rgba(255,255,255,.7);font-family:'Montserrat',sans-serif;font-size:.8rem;font-weight:600;text-decoration:none;padding:.4rem .75rem;border:1px solid rgba(255,255,255,.15);border-radius:4px">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-                  Facebook
-                </a>
-                <a href="https://tiktok.com/@jejakanoa" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:.4rem;color:rgba(255,255,255,.7);font-family:'Montserrat',sans-serif;font-size:.8rem;font-weight:600;text-decoration:none;padding:.4rem .75rem;border:1px solid rgba(255,255,255,.15);border-radius:4px">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
-                  TikTok
-                </a>
-              </div>
-            </div>
-            <div style="margin-top:2rem">
-              <div style="font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:1rem">Surat Rekomendasi &amp; Kemitraan</div>
-              <div class="kp-grid">
-                <div class="kpi"><p>Surat Dukungan KTH &amp; Pemdes Desa Lauki</p></div>
-                <div class="kpi"><p>Surat Dukungan KTH &amp; Pemdes Desa Pure</p></div>
-                <div class="kpi"><p>Surat Dukungan 6 Desa – Rehabilitasi Mangrove Buton Utara</p></div>
-                <div class="kpi"><p>Surat Dukungan BKSDA Sulawesi Tenggara</p></div>
-                <div class="kpi"><p>Dokumen Kolaborasi PILI &amp; Jejak Anoa Indonesia</p></div>
-                <div class="kpi"><p>Surat Dukungan KPH Peropae'a Buton Utara</p></div>
-                <div class="kpi"><p>Dukungan Pemerintah Daerah Buton Utara</p></div>
-                <div class="kpi"><p>Surat Dukungan GAPOKTAN Desa Benteng, Ciampea</p></div>
-                <div class="kpi"><p>Surat Dukungan 12 Desa Konservasi Anoa Sultra</p></div>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div class="kf">
-              <h3>Kirim Pesan</h3>
-              <div class="kf-row"><label>Nama</label><input type="text" placeholder="Nama Anda"></div>
-              <div class="kf-row"><label>Email</label><input type="email" placeholder="email@anda.com"></div>
-              <div class="kf-row"><label>Topik</label><select><option>Kemitraan Program</option><option>Pertanyaan Umum</option><option>Donasi & Dukungan</option><option>Media & Pers</option><option>Lainnya</option></select></div>
-              <div class="kf-row"><label>Pesan</label><textarea placeholder="Tulis pesan Anda…"></textarea></div>
-              <button class="btn-submit">Kirim Pesan</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-</div>
-</div>
-<footer>
+
+<header class="page-head" data-parallax-host>
+  <div class="grain"></div>
+  <div class="hoof-trail" data-parallax data-hoof-trail="10"></div>
   <div class="container">
-    <div class="ft-top">
+    <div class="crumb"><a href="index.html">Beranda</a> &nbsp;/&nbsp; Kontak</div>
+    <h1>Mari <span class="em">bicara,</span><br>mari berjalan bersama.</h1>
+    <p class="lede">Untuk kemitraan, riset, peliputan, atau sekadar pertanyaan — kami selalu terbuka. Pesan dijawab dalam 1–3 hari kerja.</p>
+  </div>
+</header>
+
+<section class="sec sec-dark">
+  <div class="container">
+    <div class="kt-grid">
+      <!-- Info -->
       <div>
-        <div class="ft-brand" href="index.html">
-          <div class="fb-bdg" style="background:transparent;width:38px;height:38px;overflow:hidden"><img src="assets/logo.png" alt="JAI" style="width:100%;height:100%;object-fit:contain"></div>
-          <div><span class="fb-t1">Jejak Anoa Indonesia</span><span class="fb-t2">jejakanoa.id</span></div>
+        <p class="k-quote reveal"><span class="q">"</span>Jejak Anoa berupaya mewujudkan konservasi alam yang bijak dan adil melalui pendekatan holistik berbasis ilmu pengetahuan yang bermanfaat bagi semua.<span class="q">"</span></p>
+
+        <div class="ki-list">
+          <div class="ki reveal">
+            <div class="ki-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><div class="l">Kantor</div><div class="v">Perumahan Salak View Blok B No. 11, Ciherang, Dramaga, Bogor, Jawa Barat</div></div>
+          </div>
+          <div class="ki reveal d1">
+            <div class="ki-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-7-7 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.25h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.95-.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg></div>
+            <div><div class="l">Telepon</div><div class="v">+62 812-3424-9652 · +62 853-9429-0401</div></div>
+          </div>
+          <div class="ki reveal d2">
+            <div class="ki-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div><div class="l">Email</div><div class="v"><a href="mailto:yayasan@jejakanoa.id">yayasan@jejakanoa.id</a></div></div>
+          </div>
+          <div class="ki reveal d3">
+            <div class="ki-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+            <div><div class="l">WhatsApp</div><div class="v"><a href="https://wa.me/6281234249652" target="_blank" rel="noopener">+62 812-3424-9652</a></div></div>
+          </div>
         </div>
-        <p class="ft-desc">Organisasi nirlaba bergerak di bidang konservasi lingkungan, pemberdayaan masyarakat, penelitian, dan kegiatan kemanusiaan sejak 2023.</p>
-        <div class="ft-soc"><div class="fs">IG</div><div class="fs">FB</div><div class="fs">TW</div><div class="fs">YT</div></div>
+
+        <div style="margin-top:2rem" class="reveal d2">
+          <div style="font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,240,232,.5);margin-bottom:.8rem">Media Sosial</div>
+          <div class="k-soc">
+            <a href="https://instagram.com/jejakanoa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>Instagram</a>
+            <a href="https://facebook.com/jejakanoa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>Facebook</a>
+            <a href="https://tiktok.com/@jejakanoa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>TikTok</a>
+          </div>
+        </div>
       </div>
-      <div class="ft-col"><h5>Navigasi</h5><a href="index.html">Beranda</a><a href="tentang.html">Tentang Kami</a><a href="program.html">Program</a><a href="mitra.html">Berita</a><a href="publikasi.html">Publikasi</a><a href="kontak.html">Kontak</a></div>
-      <div class="ft-col"><h5>Program</h5><a>Pendidikan &amp; Penelitian</a><a>Pemberdayaan Sosial</a><a>Pelestarian Lingkungan</a><a>Kegiatan Kemanusiaan</a></div>
+
+      <!-- Form -->
+      <form class="kf reveal d1" onsubmit="event.preventDefault();alert('Pesan terkirim — kami akan membalas dalam 1–3 hari kerja.')">
+        <h3>Kirim Pesan</h3>
+        <p class="sub">Jawaban biasanya dalam 1–3 hari kerja.</p>
+        <div class="kf-row"><label>Nama</label><input type="text" required placeholder="Nama Anda"></div>
+        <div class="kf-row"><label>Email</label><input type="email" required placeholder="email@anda.com"></div>
+        <div class="kf-row"><label>Topik</label>
+          <select>
+            <option>Kemitraan Program</option>
+            <option>Pertanyaan Umum</option>
+            <option>Donasi &amp; Dukungan</option>
+            <option>Media &amp; Pers</option>
+            <option>Lainnya</option>
+          </select>
+        </div>
+        <div class="kf-row"><label>Pesan</label><textarea required placeholder="Tulis pesan Anda…"></textarea></div>
+        <button type="submit" class="kf-submit" data-magnet>
+          Kirim Pesan
+          <svg width="14" height="14" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </form>
+    </div>
+
+    <!-- Support letters -->
+    <div style="margin-top:5rem" class="reveal">
+      <div style="font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,240,232,.5);margin-bottom:1rem">Surat Rekomendasi &amp; Kemitraan</div>
+      <div class="kp-grid">
+        <div class="kpi">Surat Dukungan KTH &amp; Pemdes Desa Lauki</div>
+        <div class="kpi">Surat Dukungan KTH &amp; Pemdes Desa Pure</div>
+        <div class="kpi">Surat Dukungan 6 Desa — Rehabilitasi Mangrove</div>
+        <div class="kpi">Surat Dukungan BKSDA Sultra</div>
+        <div class="kpi">Dokumen Kolaborasi PILI &amp; Jejak Anoa</div>
+        <div class="kpi">Surat Dukungan KPH Peropae'a Buton Utara</div>
+        <div class="kpi">Dukungan Pemda Buton Utara</div>
+        <div class="kpi">Surat Dukungan GAPOKTAN Desa Benteng</div>
+        <div class="kpi">Surat Dukungan 12 Desa Konservasi Anoa</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="ft-wrap">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <div class="brand-row">
+          <div class="brand-mark" style="background:var(--red)"><svg viewBox="0 0 24 30"><path d="M5 4c2-2 5-2 5 2 0 4-1 9-2 13s-3 6-4 6-2-2-2-5 1-13 3-16z" fill="#F5F0E8"/><path d="M19 4c-2-2-5-2-5 2 0 4 1 9 2 13s3 6 4 6 2-2 2-5-1-13-3-16z" fill="#F5F0E8"/></svg></div>
+          <div class="brand-text"><b style="color:var(--cream)">Jejak Anoa</b><span>Indonesia</span></div>
+        </div>
+        <p>Organisasi nirlaba bergerak di bidang konservasi lingkungan, pemberdayaan masyarakat, penelitian, dan kegiatan kemanusiaan sejak 2023.</p>
+        <div class="ft-soc"><a>IG</a><a>FB</a><a>TW</a><a>YT</a></div>
+      </div>
+      <div class="ft-col"><h5>Navigasi</h5><a href="index.html">Beranda</a><a href="tentang.html">Tentang Kami</a><a href="program.html">Program</a><a href="publikasi.html">Publikasi</a><a href="mitra.html">Mitra &amp; Donor</a><a href="kontak.html">Kontak</a></div>
+      <div class="ft-col"><h5>Program</h5><a>Pelestarian Lingkungan</a><a>Pemberdayaan Sosial</a><a>Pendidikan &amp; Penelitian</a><a>Kegiatan Kemanusiaan</a></div>
       <div class="ft-col"><h5>Kontak</h5><a>Ciherang, Dramaga, Bogor</a><a>+62 812-3424-9652</a><a>yayasan@jejakanoa.id</a><a href="donasi.html">Donasi</a></div>
     </div>
+    <div class="ft-wordmark"><span>JEJAK</span><svg class="hoof" viewBox="0 0 24 30"><path d="M5 4c2-2 5-2 5 2 0 4-1 9-2 13s-3 6-4 6-2-2-2-5 1-13 3-16z"/><path d="M19 4c-2-2-5-2-5 2 0 4 1 9 2 13s3 6 4 6 2-2 2-5-1-13-3-16z"/></svg><span>ANOA</span></div>
     <div class="ft-bot">
-      <p class="ft-copy">© 2026 <strong>Yayasan Jejak Anoa Indonesia</strong> · AHU-0002237.AH.01.04</p>
-      <p class="ft-copy">Dibuat dengan semangat pelestarian alam Nusantara</p>
+      <p>© 2026 Yayasan Jejak Anoa Indonesia · AHU-0002237.AH.01.04</p>
+      <p>Dibuat dengan semangat pelestarian alam Nusantara.</p>
     </div>
   </div>
 </footer>
-<script src="data.js"></script>
-<script src="app.js"></script>
+
+<script src="site.js"></script>
 </body>
 </html>
